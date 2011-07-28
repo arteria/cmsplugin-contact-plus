@@ -1,5 +1,5 @@
 {% if form %}
-	<form action='' method="POST">{% csrf_token %}
+	<form action="" method="post">{% csrf_token %}
 		<ul>
 			<li>
 				<label>{{ contact.email_label }}</label>
@@ -29,7 +29,7 @@
 				{% endif %}
 			</li>
 			<li>
-				<input type="submit" {% if contact.submit %}value="{{ contact.submit }}"{% endif %}>
+				<input type="submit"{% if contact.submit %} value="{{ contact.submit }}"{% endif %} />
 			</li>
 		</ul>
 	</form>
