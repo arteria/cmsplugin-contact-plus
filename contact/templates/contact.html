@@ -1,5 +1,5 @@
 {% if form %}
-	<form action='' method="POST">
+	<form action='' method="POST">{% csrf_token %}
 		<ul>
 			<li>
 				<label>{{ contact.email_label }}</label>
