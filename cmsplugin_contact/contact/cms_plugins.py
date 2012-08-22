@@ -36,7 +36,7 @@ class ContactPlugin(CMSPluginBase):
                 'hasError': True,
                  })
         
-            """
+         
         else:
             # GET
             form = ContactForm()
