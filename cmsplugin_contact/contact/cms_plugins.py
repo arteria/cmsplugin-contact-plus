@@ -20,14 +20,18 @@ class ContactPlugin(CMSPluginBase):
             if form.is_valid():
                 form.send(instance.site_email)
                 context.update( {
-                    'contact': instance,
+                        'contact': instance,
+                        })
+                return context
+            else:
+                form = ContactForm()
+                context.update({
+                'contact': instance,
+                'form': form,
                     })
-        else:
-            form = ContactForm()
-            context.update({
-            'contact': instance,
-            'form': form,
-                })
-        return context
+                return context
+
+
+        
     
 plugin_pool.register_plugin(ContactPlugin)
