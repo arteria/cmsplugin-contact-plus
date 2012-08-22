@@ -1,1 +1,4 @@
 {{ data.content }}
+
+E-Mail: {{ data.email }}
+Phone:  {{ data.phone }}

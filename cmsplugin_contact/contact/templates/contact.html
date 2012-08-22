@@ -10,6 +10,17 @@
 					{% endfor %}
 				{% endif %}
 			</li>
+			{% if contact.phone_label %}
+			<li>
+				<label>{{ contact.phone_label }}</label>
+					{{ form.phone }}
+				{% if form.phone.errors %}
+					{% for error in form.phone.errors %}
+						<div class="error">{{ error }}</div>
+					{% endfor %}
+				{% endif %}
+			</li>
+			{% endif %}
 			<li>
 				<label>{{ contact.subject_label }}</label>
 					{{ form.subject }}

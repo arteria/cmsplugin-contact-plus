@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 
 class ContactForm(forms.Form):
 	email 	= forms.EmailField()
+	phone 	= forms.CharField(required=False)
 	subject	= forms.CharField()
 	content	= forms.CharField(widget=forms.Textarea())
 
