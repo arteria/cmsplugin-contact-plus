@@ -33,6 +33,7 @@ class ContactPlugin(CMSPluginBase):
                 context.update({
                 'contact': instance,
                 'form': form,
+                'hasError': True,
                     })
         
         else:
