@@ -17,10 +17,10 @@ class ContactPlugin(CMSPluginBase):
             form.fields['email'].required = instance.email_required
             form.fields['phone'].required = instance.phone_required
             form.fields['subject'].required = instance.subject_required
-            
+                
             if form.is_valid():
                 form.send(instance.site_email)
-                context.update( {
+                context.update({
                         'contact': instance,
                         })
                 return context
