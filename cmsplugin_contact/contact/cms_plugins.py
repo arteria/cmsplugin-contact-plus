@@ -14,9 +14,9 @@ class ContactPlugin(CMSPluginBase):
         if request.method == "POST":
             form = ContactForm(request.POST)
             
-            form.base_fields['email'].required = instance.email_required
-            form.base_fields['phone'].required = instance.phone_required
-            form.base_fields['subject'].required = instance.subject_required
+            form.fields['email'].required = instance.email_required
+            form.fields['phone'].required = instance.phone_required
+            form.fields['subject'].required = instance.subject_required
             
             if form.is_valid():
                 form.send(instance.site_email)
@@ -26,9 +26,9 @@ class ContactPlugin(CMSPluginBase):
                 return context
             else:
                 form = ContactForm()
-                #form.base_fields['email'].required = instance.email_required
-                #form.base_fields['phone'].required = instance.phone_required
-                #form.base_fields['subject'].required = instance.subject_required
+                form.fields['email'].required = instance.email_required
+                form.fields['phone'].required = instance.phone_required
+                form.fields['subject'].required = instance.subject_required
                 
                 context.update({
                 'contact': instance,
@@ -38,9 +38,9 @@ class ContactPlugin(CMSPluginBase):
         else:
             # GET
             form = ContactForm()
-            #form.base_fields['email'].required = instance.email_required
-            #form.base_fields['phone'].required = instance.phone_required
-            #form.base_fields['subject'].required = instance.subject_required
+            form.fields['email'].required = instance.email_required
+            form.fields['phone'].required = instance.phone_required
+            form.fields['subject'].required = instance.subject_required
             
             context.update({
             'contact': instance,
