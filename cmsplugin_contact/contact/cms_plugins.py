@@ -13,6 +13,7 @@ class ContactPlugin(CMSPluginBase):
         request = context['request']
         if request.method == "POST":
             form = ContactForm(request.POST)
+            
             form.base_fields['email'].required = instance.email_required
             form.base_fields['phone'].required = instance.phone_required
             form.base_fields['subject'].required = instance.subject_required
