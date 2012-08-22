@@ -10,24 +10,24 @@ class ContactPlugin(CMSPluginBase):
     render_template = "contact.html"
     
     def render(self, context, instance, placeholder):
-	request = context['request']
-
-	if request.method == "POST":
-		form = ContactForm(request.POST)
-		if form.is_valid():
-			form.send(instance.site_email)
-			context.update( {
-				'contact': instance,
-				})
-			return context
-	else:
-		form = ContactForm()
-
-	
-        context.update({
-		'contact': instance,
-		'form': form,
-        	})
+    	request = context['request']
+    	if request.method == "POST":
+    		form = ContactForm(request.POST)
+    		form.base_fields['email'].required = instance.email_required
+    		form.base_fields['phone'].required = instance.phone_required
+    		form.base_fields['subject'].required = instance.subject_required
+    		
+    		if form.is_valid():
+    			form.send(instance.site_email)
+    			context.update( {
+    				'contact': instance,
+    				})
+    	else:
+    		form = ContactForm()
+            context.update({
+    		'contact': instance,
+    		'form': form,
+            	})
         return context
     
 plugin_pool.register_plugin(ContactPlugin)
