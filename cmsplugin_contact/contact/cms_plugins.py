@@ -25,17 +25,18 @@ class ContactPlugin(CMSPluginBase):
                         })
                 return context
             else:
-                form = ContactForm()
-                form.fields['email'].required = instance.email_required
-                form.fields['phone'].required = instance.phone_required
-                form.fields['subject'].required = instance.subject_required
+            #    form = ContactForm()
+            #    form.fields['email'].required = instance.email_required
+            #    form.fields['phone'].required = instance.phone_required
+            #    form.fields['subject'].required = instance.subject_required
                 
                 context.update({
                 'contact': instance,
                 'form': form,
                 'hasError': True,
-                    })
+                 })
         
+            """
         else:
             # GET
             form = ContactForm()
