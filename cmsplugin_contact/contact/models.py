@@ -15,8 +15,7 @@ class Contact(CMSPlugin):
 	content_label = models.CharField(_('Message content label'), max_length=100)
 	thanks = models.CharField(_('Message displayed on successful submit'), max_length=200)
 	submit = models.CharField(_('Submit button value'), blank=True, max_length=30)
-
-    inclose = models.CharField(max_length=100, choices=getattr(settings, 'AR_GRID_CLASSES', (('', ''),)), default="")
+    inclose = models.CharField(max_length=100, choices=getattr(settings, 'AR_GRID_CLASSES', (('', ''),), default="")
     
     
 	def __unicode__(self):
