@@ -1,5 +1,5 @@
 {# see arco for a live example #}
-<div class="{{ contact.inclose }}">
+{% if contact.inclose %}<div class="{{ contact.inclose }}">{% endif %}
     {% if form %}
     	<form action="" method="post">{% csrf_token %}
     		<ul>
@@ -50,4 +50,4 @@
     {% else %}
     	<h2>{{ contact.thanks }}</h2>
     {% endif %}
-</div>
+{% if contact.inclose %}</div>{% endif %}
