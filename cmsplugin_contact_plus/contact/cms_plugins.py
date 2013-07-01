@@ -45,9 +45,9 @@ class ContactPlugin(CMSPluginBase):
             form.fields['subject'].required = instance.subject_required
             
             context.update({
-            'contact': instance,
-            'form': form,
-                })
+                'contact': instance,
+                'form': form,
+            })
         return context
 
          

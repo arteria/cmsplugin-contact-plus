@@ -12,7 +12,8 @@
     					{% endfor %}
     				{% endif %}
     			</li>
-    			{% if contact.phone_label %}
+    			
+				{% if contact.phone_label %}
     			<li>
     				<label>{{ contact.phone_label }}</label>
     					{{ form.phone }}
@@ -23,6 +24,7 @@
     				{% endif %}
     			</li>
     			{% endif %}
+				
     			<li>
     				<label>{{ contact.subject_label }}</label>
     					{{ form.subject }}
@@ -48,6 +50,6 @@
     	</form>
     
     {% else %}
-    	<h2>{{ contact.thanks }}</h2>
+    	<h2>{{ contact.thanks|safe }}</h2>
     {% endif %}
 {% if contact.inclose %}</div>{% endif %}

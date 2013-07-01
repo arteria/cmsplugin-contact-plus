@@ -17,12 +17,12 @@ class ContactForm(forms.Form):
         
         email_message = EmailMessage(
             # self.cleaned_data['subject'],
-            "NEW MESSAGE FROM " + current_site.domain.upper(),
+            "[" + current_site.domain.upper() + "]",
                 render_to_string("email.txt", {
                     'data': self.cleaned_data,
             }),
-                    site_email,
-                    [site_email],
+                    from_email = None,  #site_email, => settings.DEFAULT_FROM_EMAIL
+                    to = site_email.split(','),
                     headers = {
                 'Reply-To': self.cleaned_data['email']
                 },)
