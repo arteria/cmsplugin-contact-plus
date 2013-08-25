@@ -1,2 +1,0 @@
-cmsplugin-contact-plus
-======================
