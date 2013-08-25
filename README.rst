@@ -5,8 +5,16 @@
 
 
 ## Quickstart
-Put "cmsplugin_contact_plus.contact" in your INSTALLED_APPS settings.py section.
-Don't forget to syncdb your database.
+
+1. In your virtualenv run
+
+	```
+	pip install --update cmsplugin-contact-plus
+	```
+
+2. Put "cmsplugin_contact_plus.contact" in your INSTALLED_APPS settings.py section.
+
+3. Don't forget to syncdb your database.
 
 
 
