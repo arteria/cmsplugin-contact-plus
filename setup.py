@@ -6,7 +6,7 @@ setup(
      packages=['cmsplugin_contact_plus',],
      license='BSD',
      long_description=open('README.txt').read(),
-     author='Philippe O. Wagner',
-     author_email='wagner@arteria.ch',
+     author='arteria GmbH',
+     author_email='admin@arteria.ch',
 )
         

@@ -1,10 +1,8 @@
 # cmsplugin_contact_plus
 
 
-cmsplugin_contact_plus is an adapted version of cmsplugin_contact (https://github.com/rtpm/cmsplugin_contact).
+[cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) is an adapted version of [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact).
 
-
-Detailed documentation is in the "docs" directory.
 
 ## Quickstart
 Put "cmsplugin_contact_plus.contact" in your INSTALLED_APPS settings.py section.
