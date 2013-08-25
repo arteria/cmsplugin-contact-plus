@@ -1,6 +1,0 @@
-
-SUBJECT: {{ data.subject }} 
-EMAIL:   {{ data.email }}
-PHONE:   {{ data.phone }}
-MESSAGE: 
-{{ data.content }}
