@@ -24,7 +24,7 @@
 - Trigger a signal when a message was send successfully
 - and track the current status in each message record for further interaction (new, in progress, closed). 
 
-https://github.com/maccesch/cmsplugin-contact
+
 
 
 ## Changelog
@@ -32,7 +32,7 @@ https://github.com/maccesch/cmsplugin-contact
 
 ### 1.0.0
 
-Open sourced cmsplugin_contact_plus.
+[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus.
 
 
 
