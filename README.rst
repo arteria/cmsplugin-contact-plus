@@ -12,7 +12,7 @@
 	pip install cmsplugin_contact_plus
 	```
 
-2. Put "cmsplugin_contact_plus.contact" in your INSTALLED_APPS settings.py section.
+2. Put "cmsplugin_contact_plus.contact" in your INSTALLED_APPS settings.py section and verify that [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) is defined as well.
 
 3. Don't forget to syncdb your database.
 

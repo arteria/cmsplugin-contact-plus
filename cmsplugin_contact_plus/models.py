@@ -8,7 +8,7 @@ from inline_ordering.models import Orderable
 
 
 class ContactPlus(CMSPlugin):
-    reciepient_email = models.EmailField(_("Email of reciepients, split by ','"))
+    reciepient_email = models.EmailField(_("Email of reciepients"), default=settings.ADMINS[0][1])
     thanks = models.TextField(_('Message displayed on successful submit of the contact form.'))
     submit = models.CharField(_('Submit button value'), blank=True, max_length=30)
    
@@ -21,6 +21,7 @@ class ContactPlus(CMSPlugin):
     def __unicode__(self):
         return "Contact Form"
 
+
 FIELD_TYPE = (('CharField', 'CharField'),
               ('BooleanField', 'BooleanField'),
               ('EmailField','EmailField'),
@@ -30,6 +31,8 @@ FIELD_TYPE = (('CharField', 'CharField'),
               ('IPAddressField', 'IPAddressField'),
               
 )
+
+
 class ExtraField(Orderable):
     form = models.ForeignKey(ContactPlus, verbose_name=_("Contact Form"))
     label = models.CharField(_('Label'), max_length=100)
