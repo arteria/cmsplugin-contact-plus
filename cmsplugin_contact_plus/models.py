@@ -9,8 +9,8 @@ from inline_ordering.models import Orderable
 
 class ContactPlus(CMSPlugin):
     reciepient_email = models.EmailField(_("Email of reciepients"), default=settings.ADMINS[0][1])
-    thanks = models.TextField(_('Message displayed on successful submit of the contact form.'))
-    submit = models.CharField(_('Submit button value'), blank=True, max_length=30)
+    thanks = models.TextField(_('Message displayed after submitting the contact form.'))
+    submit = models.CharField(_('Text for the Submit button.'), blank=True, max_length=30)
    
     def copy_relations(self, oldinstance):
         for extrafield in ExtraField.objects.filter(form__pk=oldinstance.pk):
