@@ -6,13 +6,19 @@
 
 ## Quickstart
 
-1. In your virtualenv run
+1. To install from PyPi, in your virtualenv run
 
 	```
-	pip install cmsplugin_contact_plus
+	$ pip install cmsplugin_contact_plus
+	```
+	
+	or to get the latest commit from GitHub
+	 
+	```
+	$ pip install -e git+git://github.com/arteria/cmsplugin-contact-plus.git#egg=cmsplugin_contact_plus
 	```
 
-2. Put "cmsplugin_contact_plus.contact" in your INSTALLED_APPS settings.py section and verify that [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) is defined as well.
+2. Put "cmsplugin_contact_plus" in your INSTALLED_APPS settings.py section and verify that [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) is defined as well.
 
 3. Don't forget to syncdb your database.
 
@@ -23,7 +29,7 @@
 - Save send data to a NoSQL database (eg. MongoDB).
 - Trigger a signal when a message was send successfully
 - and track the current status in each message record for further interaction (new, in progress, closed). 
-
+- Add dependencies to setup.py.
 
 
 
