@@ -9,7 +9,7 @@
 1. In your virtualenv run
 
 	```
-	pip install --update cmsplugin-contact-plus
+	pip install cmsplugin_contact_plus
 	```
 
 2. Put "cmsplugin_contact_plus.contact" in your INSTALLED_APPS settings.py section.
