@@ -24,6 +24,8 @@
 - Trigger a signal when a message was send successfully
 - and track the current status in each message record for further interaction (new, in progress, closed). 
 
+https://github.com/maccesch/cmsplugin-contact
+
 
 ## Changelog
 
