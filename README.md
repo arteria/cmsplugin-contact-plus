@@ -35,6 +35,8 @@
 
 ## Changelog
 
+### 1.0.1
+Fixed IndentationError in setup.py
 
 ### 1.0.0
 
