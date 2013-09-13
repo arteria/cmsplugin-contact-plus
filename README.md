@@ -34,6 +34,10 @@
 
 
 ## Changelog
+### 1.0.3
+
+### 1.0.2
+Fixed indentation /EOF in setup.py
 
 ### 1.0.1
 Fixed IndentationError in setup.py
