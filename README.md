@@ -36,6 +36,10 @@ Do not forget to add `'django.template.loaders.app_directories.Loader'` to `TEMP
 
 
 ## Changelog
+### 1.0.3
+
+### 1.0.2
+Fixed indentation /EOF in setup.py
 
 ### development
 - Documentation
