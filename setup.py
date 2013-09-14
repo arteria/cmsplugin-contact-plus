@@ -11,4 +11,3 @@ setup(
     author = 'arteria GmbH',
     author_email = 'admin@arteria.ch',
 )
-# eof
