@@ -1,4 +1,5 @@
 from distutils.core import setup 
+
 setup(
     name='cmsplugin_contact_plus',
     version='1.0.2',
@@ -9,4 +10,5 @@ setup(
     long_description=open('README.md').read(),
     author='arteria GmbH',
     author_email='admin@arteria.ch',
-)# eof
+)
+# eof
