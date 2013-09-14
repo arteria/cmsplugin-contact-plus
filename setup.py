@@ -9,5 +9,4 @@ setup(
     long_description=open('README.md').read(),
     author='arteria GmbH',
     author_email='admin@arteria.ch',
-)
-# eof
+)# eof
