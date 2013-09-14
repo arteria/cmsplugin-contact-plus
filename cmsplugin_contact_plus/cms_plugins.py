@@ -22,13 +22,13 @@ class CMSContactPlusPlugin(CMSPluginBase):
             if form.is_valid():
                 form.send(instance.reciepient_email, request)
                 context.update({
-                        'contact': instance,
+                    'contact': instance,
                 })
                 return context
             else:
                 context.update({
-                        'contact': instance,
-                        'form': form,
+                    'contact': instance,
+                    'form': form,
                         
                 })
         else:
