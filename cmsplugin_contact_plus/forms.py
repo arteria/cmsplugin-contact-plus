@@ -11,7 +11,7 @@ from django.conf import settings
 
 class ContactFormPlus(forms.Form):
     
-    def __init__(self, contactFormInstance, *args, **kwargs):
+    def __init__(self, contactFormInstance, request, *args, **kwargs):
         super(ContactFormPlus, self).__init__(*args, **kwargs)
         if 'instance' not in kwargs:
             for extraField in contactFormInstance.extrafield_set.all():
@@ -50,8 +50,8 @@ class ContactFormPlus(forms.Form):
                             required=extraField.required)
                 elif extraField.fieldType == 'auto_referral_page':
                     lInitial = "No referral page found."
-                    if 'request' in kwargs:
-                        lInitial = kwargs['request']
+                    if request:
+                        lInitial = request.user.username
                     
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label, 
                             initial = lInitial, #NOTE: This overwrites extraField.initial! 
