@@ -29,7 +29,8 @@ FIELD_TYPE = (('CharField', 'CharField'),
               ('FloatField','FloatField'),
               ('IntegerField','IntegerField'),
               ('IPAddressField', 'IPAddressField'),
-              
+              #('CharField_Textarea','Textarea'),      
+              ('Textarea','Textarea'),   
 )
 
 
