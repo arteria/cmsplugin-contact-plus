@@ -22,7 +22,9 @@
 
 3. Don't forget to syncdb your database.
 
+## Templates
 
+Do not forget to add `'django.template.loaders.app_directories.Loader'` to `TEMPLATE_DIRS` in your settings.py.   
 
 
 ## TODO
@@ -34,10 +36,12 @@
 
 
 ## Changelog
-### 1.0.3
+### development
+- Documentation
 
 ### 1.0.2
 Fixed indentation /EOF in setup.py
+
 
 ### 1.0.1
 Fixed IndentationError in setup.py
