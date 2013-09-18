@@ -49,9 +49,9 @@ class ContactFormPlus(forms.Form):
                             widget=forms.Textarea,   
                             required=extraField.required)
                 elif extraField.fieldType == 'auto_referral_page':
-                    lInitial = "No referral page found."
+                    lInitial = "No referral available."
                     if request:
-                        lInitial = request.user.username
+                        lInitial = request.META.get('HTTP_REFERER', 'No referral available.')
                     
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label, 
                             initial = lInitial, #NOTE: This overwrites extraField.initial! 

@@ -40,7 +40,7 @@ Do not forget to add `'django.template.loaders.app_directories.Loader'` to `TEMP
 ### development
 - Documentation
 - Added auto_TextArea hack. Note: Will be removed later and cleand up.
-- Hidden "referral page" field.
+- Hidden "referral page" field
 
 
 ### 1.0.2
