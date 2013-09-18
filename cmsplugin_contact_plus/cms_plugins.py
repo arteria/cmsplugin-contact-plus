@@ -32,7 +32,8 @@ class CMSContactPlusPlugin(CMSPluginBase):
                         
                 })
         else:
-            form = ContactFormPlus(contactFormInstance=instance, request) 
+            kw = {'request': request, }
+            form = ContactFormPlus(contactFormInstance=instance, **kw) 
             context.update({
                     'contact': instance,
                     'form': form,
