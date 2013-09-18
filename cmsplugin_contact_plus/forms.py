@@ -12,7 +12,7 @@ from django.conf import settings
 class ContactFormPlus(forms.Form):
     
     def __init__(self, contactFormInstance, *args, **kwargs):
-        request = kwargs.pop('request',)
+        request = kwargs.get('request',)
         super(ContactFormPlus, self).__init__(*args, **kwargs)
         if 'instance' not in kwargs:
             for extraField in contactFormInstance.extrafield_set.all():
