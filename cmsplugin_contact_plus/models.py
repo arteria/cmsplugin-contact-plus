@@ -30,7 +30,8 @@ FIELD_TYPE = (('CharField', 'CharField'),
               ('IntegerField','IntegerField'),
               ('IPAddressField', 'IPAddressField'),
               #('CharField_Textarea','Textarea'),      
-              ('Textarea','Textarea'),   
+              ('auto_Textarea','CharField as Textarea'),    
+              ('auto_referral_page','Referral page as hidden input'),             
 )
 
 
@@ -40,7 +41,7 @@ class ExtraField(Orderable):
     fieldType = models.CharField(max_length=100, choices=FIELD_TYPE)
     initial = models.CharField(_('Inital Value'), max_length=250, blank=True, null=True)
     required = models.BooleanField( _('Mandatory field'), default=True) 
-    widget = models.CharField(_('Widget'), max_length=250, blank=True, null=True)
+    widget = models.CharField(_('Widget'), max_length=250, blank=True, null=True, help_text="Will be ignored in the current version." )
     
     def __unicode__(self):
         return self.label

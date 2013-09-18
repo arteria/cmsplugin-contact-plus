@@ -32,12 +32,16 @@ Do not forget to add `'django.template.loaders.app_directories.Loader'` to `TEMP
 - Trigger a signal when a message was send successfully
 - and track the current status in each message record for further interaction (new, in progress, closed). 
 - Add dependencies to setup.py.
-
+- Widget support for each field.  
+- Smart hidden fields, eg. storing Query parameter, referral page, ..
 
 
 ## Changelog
 ### development
 - Documentation
+- Added auto_TextArea hack. Note: Will be removed later and cleand up.
+- Hidden "referral page" field.
+
 
 ### 1.0.2
 Fixed indentation /EOF in setup.py

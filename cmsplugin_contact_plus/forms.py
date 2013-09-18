@@ -43,11 +43,23 @@ class ContactFormPlus(forms.Form):
                     self.fields[slugify(extraField.label)] = forms.IPAddressField(label=extraField.label, 
                             initial=extraField.initial, 
                             required=extraField.required)
-                elif extraField.fieldType == 'Textarea':
+                elif extraField.fieldType == 'auto_Textarea':
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label, 
                             initial=extraField.initial,
-                            widget=forms.Textarea, 
+                            widget=forms.Textarea,   
                             required=extraField.required)
+                elif extraField.fieldType == 'auto_referral_page':
+                    lInitial = "No referral page found."
+                    request = kwargs.get('request',)
+                    if request:
+                        lInitial = request
+                    
+                    self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label, 
+                            initial = lInitial, #NOTE: This overwrites extraField.initial! 
+                            widget=forms.HiddenInput, 
+                            required=extraField.required) 
+                            
+                
                 
                 
     def send(self, reciepient_email, request):
