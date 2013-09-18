@@ -31,7 +31,8 @@ FIELD_TYPE = (('CharField', 'CharField'),
               ('IPAddressField', 'IPAddressField'),
               #('CharField_Textarea','Textarea'),      
               ('auto_Textarea','CharField as Textarea'),    
-              ('auto_referral_page','Referral page as hidden input'),             
+              ('auto_hidden_input','CharField as HiddenInput'),    
+              ('auto_referral_page','Referral page as HiddenInput'),             
 )
 
 

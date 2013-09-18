@@ -48,15 +48,19 @@ class ContactFormPlus(forms.Form):
                             initial=extraField.initial,
                             widget=forms.Textarea,   
                             required=extraField.required)
+                elif extraField.fieldType == 'auto_hidden_input':
+                    self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label, 
+                            initial = extraField.initial,
+                            widget=forms.HiddenInput, 
+                            required=False)
                 elif extraField.fieldType == 'auto_referral_page':
                     lInitial = "No referral available."
                     if request:
                         lInitial = request.META.get('HTTP_REFERER', 'No referral available.')
-                    
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label, 
                             initial = lInitial, #NOTE: This overwrites extraField.initial! 
                             widget=forms.HiddenInput, 
-                            required=extraField.required) 
+                            required=False) 
                             
                 
                 
