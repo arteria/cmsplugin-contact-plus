@@ -17,6 +17,7 @@
 	```
 	$ pip install -e git+git://github.com/arteria/cmsplugin-contact-plus.git#egg=cmsplugin_contact_plus
 	```
+	
 
 2. Put "cmsplugin_contact_plus" in your INSTALLED_APPS settings.py section and verify that [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) is defined as well.
 
@@ -33,14 +34,24 @@ Do not forget to add `'django.template.loaders.app_directories.Loader'` to `TEMP
 - and track the current status in each message record for further interaction (new, in progress, closed). 
 - Add dependencies to setup.py.
 - Widget support for each field.  
-- Smart hidden fields, eg. storing Query parameter, referral page, ..
+- Smart hidden fields, eg. storing Query parameter, ..
 
 
 ## Changelog
 ### development
-- Documentation
-- Added auto_TextArea hack. Note: Will be removed later and cleand up.
-- Hidden "referral page" field
+- Documentation here and there.
+- Added auto_TextArea 'shortcut' to create a TextArea. Note: Currently the widget definde in the plugins are ignored. 
+- Hidden "referral page" field. Reads referral from request.
+- Generic Hidden fields. Use this in combination with JavaScript/jQuery to attach additional data to the form sent by email.
+
+For exmple, the field lable for the 'CharField as HiddenInput' is named to "Object description". 
+Using the lable name, the ID for the input field will be 'id_object-description', the name 'object-description'.
+
+Store data is dead easy using jQuery.
+
+	```
+	$('#id_object-description').val('Hello Hidden World'); // The string 'Hello Hidden World' will be send by email as well.
+	```
 
 
 ### 1.0.2
