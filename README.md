@@ -19,13 +19,13 @@
 	```
 	
 
-2. Put "cmsplugin_contact_plus" in your INSTALLED_APPS settings.py section and verify that [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) is defined as well.
+2. Put ``cmsplugin_contact_plus`` in your INSTALLED_APPS settings.py section and verify that [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) is defined as well.
 
 3. Don't forget to syncdb your database.
 
 ## Templates
 
-Do not forget to add `'django.template.loaders.app_directories.Loader'` to `TEMPLATE_DIRS` in your settings.py.   
+Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_DIRS`` in your settings.py.   
 
 
 ## TODO
@@ -39,8 +39,10 @@ Do not forget to add `'django.template.loaders.app_directories.Loader'` to `TEMP
 
 ## Changelog
 ### development
-- Documentation here and there.
-- Added auto_TextArea 'shortcut' to create a TextArea. Note: Currently the widget definde in the plugins are ignored. 
+
+### 1.0.3
+- Improoved Documentation
+- Added ``auto_TextArea`` shortcut to create a TextArea. Note: Currently the widget definde in the plugins are ignored. 
 - Hidden "referral page" field. Reads referral from request.
 - Generic Hidden fields. Use this in combination with JavaScript/jQuery to attach additional data to the form sent by email.
 
