@@ -25,7 +25,7 @@
 
 ## Templates
 
-Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_DIRS`` in your settings.py.   
+Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.   
 
 
 ## TODO
