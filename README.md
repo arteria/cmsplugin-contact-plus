@@ -39,6 +39,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 
 ## Changelog
 ### development
+Please have a look at the latest commits for the work-in-progress-development version.
 
 ### 1.0.4
 - Fixed default "from email address" in case ``ADMINS`` is not defined in ``settings.py``. (Issue #2)
