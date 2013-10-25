@@ -40,6 +40,10 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ## Changelog
 ### development
 
+### 1.0.4
+- Fixed default "from email address" in case ``ADMINS`` is not defined in ``settings.py``. (Issue #2)
+- Fixed typos and added translation markers.
+
 ### 1.0.3
 - Improoved Documentation
 - Added ``auto_TextArea`` shortcut to create a TextArea. Note: Currently the widget definde in the plugins are ignored. 

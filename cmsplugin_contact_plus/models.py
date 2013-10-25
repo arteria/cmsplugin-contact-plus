@@ -6,9 +6,13 @@ from cms.models import CMSPlugin
 
 from inline_ordering.models import Orderable
 
-
+try:
+    DEFAULT_FROM_EMAIL_ADDRESS = settings.ADMINS[0][1] 
+except:
+    DEFAULT_FROM_EMAIL_ADDRESS = ''
+    
 class ContactPlus(CMSPlugin):
-    reciepient_email = models.EmailField(_("Email of reciepients"), default=settings.ADMINS[0][1])
+    reciepient_email = models.EmailField(_("Email of recipients"), default=DEFAULT_FROM_EMAIL_ADDRESS)
     thanks = models.TextField(_('Message displayed after submitting the contact form.'))
     submit = models.CharField(_('Text for the Submit button.'), blank=True, max_length=30)
    
