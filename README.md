@@ -42,7 +42,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Widget support for each field.  
 - More smart hidden fields, eg. storing Query parameter, ..
 - Provide examples and real live case studies
--
+
 
 ## Changelog
 ### development 
