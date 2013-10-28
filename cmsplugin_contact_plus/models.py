@@ -12,6 +12,9 @@ except:
     DEFAULT_FROM_EMAIL_ADDRESS = ''
     
 class ContactPlus(CMSPlugin):
+    class Meta:
+        verbose_name = "Contact Plus Form"
+        verbose_name_plural = "Contact Plus Forms"
     reciepient_email = models.EmailField(_("Email of recipients"), default=DEFAULT_FROM_EMAIL_ADDRESS)
     thanks = models.TextField(_('Message displayed after submitting the contact form.'))
     submit = models.CharField(_('Text for the Submit button.'), blank=True, max_length=30)
