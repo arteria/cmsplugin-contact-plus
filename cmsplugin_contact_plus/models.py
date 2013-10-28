@@ -26,7 +26,7 @@ class ContactPlus(CMSPlugin):
             self.extrafield_set.add(extrafield)
 
     def __unicode__(self):
-        return "Contact Form"
+        return "Contact Plus Form for %s" % self.reciepient_email 
 
 
 FIELD_TYPE = (('CharField', 'CharField'),
