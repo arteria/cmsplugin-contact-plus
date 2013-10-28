@@ -1,8 +1,14 @@
-# cmsplugin_contact_plus
+# About cmsplugin_contact_plus
 
+[cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) is an adapted version of 
+[cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact) that lets your build forms for your django-cms project 
+with exactly the fields you want in the order you want with a minimal of effort. 
 
-[cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) is an adapted version of [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact).
+There are "auto" fields, e.g. to submit the referral page or additional, hidden value. 
+The form will be submitted to a per form defined email address. This allows to cover a lot of 
+usecases with a single and simple cmsplugin. 
 
+cmsplugin_contact_plus is licensed under The MIT License.
 
 ## Quickstart
 
@@ -28,17 +34,18 @@
 Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.   
 
 
-## TODO
+## TODO and planned features
 - Save send data to a NoSQL database (eg. MongoDB).
 - Trigger a signal when a message was send successfully
 - and track the current status in each message record for further interaction (new, in progress, closed). 
-- Add dependencies to setup.py.
+- Add/Update dependencies to setup.py.
 - Widget support for each field.  
-- Smart hidden fields, eg. storing Query parameter, ..
-
+- More smart hidden fields, eg. storing Query parameter, ..
+- Provide examples and real live case studies
+-
 
 ## Changelog
-### development
+### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
 ### 1.0.4
@@ -70,7 +77,7 @@ Fixed IndentationError in setup.py
 
 ### 1.0.0
 
-[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus.
+[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License.
 
 
 
