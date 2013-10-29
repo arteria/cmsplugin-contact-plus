@@ -2,7 +2,7 @@
 
 [cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) is an adapted version of 
 [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact) that lets your build forms for your django-cms project 
-with exactly the fields you want in the order you want with a minimal of effort. 
+with exactly the fields you want in the order you want with a minimal effort. 
 
 There are "auto" fields, e.g. to submit the referral page or additional, hidden value. 
 The form will be submitted to a per form defined email address. This allows to cover a lot of 
