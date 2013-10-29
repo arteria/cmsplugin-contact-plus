@@ -81,3 +81,7 @@ Fixed IndentationError in setup.py
 
 
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/philippeowagner/cmsplugin-contact-plus/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
