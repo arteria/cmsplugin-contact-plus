@@ -63,9 +63,9 @@ Using the lable name, the ID for the input field will be 'id_object-description'
 
 Store data is dead easy using jQuery.
 
-	```
+	
 	$('#id_object-description').val('Hello Hidden World'); // The string 'Hello Hidden World' will be send by email as well.
-	```
+	
 
 
 ### 1.0.2
