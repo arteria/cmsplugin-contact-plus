@@ -15,13 +15,13 @@ cmsplugin_contact_plus is licensed under The MIT License.
 1. To install from PyPi, in your virtualenv run
 
 	```
-	$ pip install cmsplugin_contact_plus
+	pip install cmsplugin_contact_plus
 	```
 	
 	or to get the latest commit from GitHub
 	 
 	```
-	$ pip install -e git+git://github.com/arteria/cmsplugin-contact-plus.git#egg=cmsplugin_contact_plus
+	pip install -e git+git://github.com/arteria/cmsplugin-contact-plus.git#egg=cmsplugin_contact_plus
 	```
 	
 
