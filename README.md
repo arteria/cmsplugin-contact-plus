@@ -48,6 +48,10 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+- Generic GET key to hidden field. Use this in attach additional hidden data to the form. The slugified label is used for key lookup in the GET parameters. Eg.:  
+label is 'Favorite Color', than the lookup in the URL is done based on 'favorite-color', in www.example.com?favorite-color=blue will pass {..., u'favorite-color':'blue', ...}  to the email.
+
+
 ### 1.0.4
 - Fixed default "from email address" in case ``ADMINS`` is not defined in ``settings.py``. (Issue #2)
 - Fixed typos and added translation markers.
