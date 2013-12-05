@@ -48,6 +48,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+### 1.1.0
 - Generic GET key to hidden field. Use this in attach additional hidden data to the form. The slugified label is used for key lookup in the GET parameters. Eg.:  
 label is 'Favorite Color', than the lookup in the URL is done based on 'favorite-color', in www.example.com?favorite-color=blue will pass {..., u'favorite-color':'blue', ...}  to the email.
 
@@ -80,12 +81,4 @@ Fixed indentation /EOF in setup.py
 Fixed IndentationError in setup.py
 
 ### 1.0.0
-
 [arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License.
-
-
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/philippeowagner/cmsplugin-contact-plus/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
