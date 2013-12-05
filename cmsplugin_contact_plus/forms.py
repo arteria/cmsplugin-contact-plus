@@ -61,7 +61,7 @@ class ContactFormPlus(forms.Form):
                             initial = lInitial, #NOTE: This overwrites extraField.initial! 
                             widget=forms.HiddenInput, 
                             required=False) 
-                elif extraField.fieldType == 'auto_GET_parameter:
+                elif extraField.fieldType == 'auto_GET_parameter':
                     lInitial = "Key/value parameter not available."
                     if request:
                         lInitial = request.GET.get(slugify(extraField.label), 'n/a')
