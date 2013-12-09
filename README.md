@@ -40,7 +40,6 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - and track the current status in each message record for further interaction (new, in progress, closed). 
 - Add/Update dependencies to setup.py.
 - Widget support for each field.  
-- More smart hidden fields, eg. storing Query parameter, ..
 - Provide examples and real live case studies
 
 
@@ -49,7 +48,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 Please have a look at the latest commits for the work-in-progress-development version.
 
 ### 1.1.0
-- Generic GET key to hidden field. Use this in attach additional hidden data to the form. The slugified label is used for key lookup in the GET parameters. Eg.:  
+- Generic Query parameter (GET key) to hidden field. Use this in attach additional hidden data to the form. The slugified label is used for key lookup in the GET parameters. Eg.:  
 label is 'Favorite Color', than the lookup in the URL is done based on 'favorite-color', in www.example.com?favorite-color=blue will pass {..., u'favorite-color':'blue', ...}  to the email.
 
 
