@@ -1,4 +1,4 @@
 include LICENSE
 include README.md
 include AUTHORS.txt
-recursive-include templates cmsplugin_contact_plus/*
+recursive-include cmsplugin_contact_plus/templates *
