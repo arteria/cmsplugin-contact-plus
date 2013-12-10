@@ -47,6 +47,8 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+### 1.1.2
+- Patch version and corrected Manifest, see issue #4
 
 ### 1.1.1
 - Added include for templates im Manifest.in, fixes issue #4
