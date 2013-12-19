@@ -1,4 +1,5 @@
-Someone ist contacting you thru your website,<br><br>
+New message from the Web
+
 {% for label, value in data.items %}
-<b>{{ key }}:</b> {{ value }}<br>
+{{ label }}: {{ value }}
 {% endfor %}

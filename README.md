@@ -1,12 +1,11 @@
 # About cmsplugin_contact_plus
 
-[cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) is an adapted version of 
-[cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact) that lets your build forms for your django-cms project 
+[cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) lets your build forms for your django CMS project 
 with exactly the fields you want in the order you want with a minimal effort. 
 
-There are "auto" fields, e.g. to submit the referral page or additional, hidden value. 
+Beside the regular input fields, there are "auto" fields, for example to submit the referral page or additional, hidden values. 
 The form will be submitted to a per form defined email address. This allows to cover a lot of 
-usecases with a single and simple cmsplugin. 
+use cases with a single and simple cmsplugin. 
 
 cmsplugin_contact_plus is licensed under The MIT License.
 
@@ -40,12 +39,16 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - and track the current status in each message record for further interaction (new, in progress, closed). 
 - Add/Update dependencies to setup.py.
 - Widget support for each field.  
-- Provide examples and real live case studies
-
+- Provide examples and real life case studies
+- Multiple template support /custom templates
+- Formatted email messages, HTML?
 
 ## Changelog
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
+
+### 1.1.3
+- Better readability in email.
 
 ### 1.1.2
 - Patch version for PyPI with corrected Manifest.in, see issue #4.
@@ -86,4 +89,4 @@ Fixed indentation /EOF in setup.py
 Fixed IndentationError in setup.py
 
 ### 1.0.0
-[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License.
+[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License. This plugin was build on a fork of [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact). Kudos! 
