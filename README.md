@@ -48,10 +48,10 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 Please have a look at the latest commits for the work-in-progress-development version.
 
 ### 1.1.2
-- Patch version and corrected Manifest, see issue #4
+- Patch version for PyPI with corrected Manifest.in, see issue #4.
 
 ### 1.1.1
-- Added include for templates im Manifest.in, fixes issue #4
+- Added include for templates im Manifest.in, fixes issue #4.
 
 ### 1.1.0
 - Generic Query parameter (GET key) to hidden field. Use this in attach additional hidden data to the form. The slugified label is used for key lookup in the GET parameters. Eg.:  
