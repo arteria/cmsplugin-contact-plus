@@ -1,1 +1,4 @@
-{{ data|safe }}
+Someone ist contacting you thru your website,<br><br>
+{% for label, value in data.items %}
+<b>{{ key }}:</b> {{ value }}<br>
+{% endfor %}
