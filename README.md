@@ -47,6 +47,9 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+### 1.1.3
+- Better readability in email.
+
 ### 1.1.2
 - Patch version and corrected Manifest, see issue #4
 
