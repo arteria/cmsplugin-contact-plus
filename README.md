@@ -41,7 +41,8 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Add/Update dependencies to setup.py.
 - Widget support for each field.  
 - Provide examples and real live case studies
-
+- Multiple template support /custom templates
+- Formatted email messages, HTML?
 
 ## Changelog
 ### development 
