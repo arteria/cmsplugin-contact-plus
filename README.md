@@ -3,7 +3,7 @@
 [cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) lets your build forms for your django CMS project 
 with exactly the fields you want in the order you want with a minimal effort. 
 
-Beside the regular input fields, here are "auto" fields, e.g. to submit the referral page or additional, hidden values. 
+Beside the regular input fields, there are "auto" fields, for example to submit the referral page or additional, hidden values. 
 The form will be submitted to a per form defined email address. This allows to cover a lot of 
 use cases with a single and simple cmsplugin. 
 
@@ -39,7 +39,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - and track the current status in each message record for further interaction (new, in progress, closed). 
 - Add/Update dependencies to setup.py.
 - Widget support for each field.  
-- Provide examples and real live case studies
+- Provide examples and real life case studies
 - Multiple template support /custom templates
 - Formatted email messages, HTML?
 
