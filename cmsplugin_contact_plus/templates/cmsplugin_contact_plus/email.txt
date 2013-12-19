@@ -1,5 +1,4 @@
-Someone ist contacting you thru your website,
-
+New message from the Web
 
 {% for label, value in data.items %}
 {{ label }}: {{ value }}
