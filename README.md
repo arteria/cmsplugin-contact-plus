@@ -47,6 +47,10 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+### 1.1.4
+- Packaging was modified for PyPI.
+- Upload script for PyPI. Just execute ``./upload-to-pypi.sh``.
+
 ### 1.1.3
 - Better readability in email.
 
