@@ -1,12 +1,11 @@
 # About cmsplugin_contact_plus
 
-[cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) is an adapted version of 
-[cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact) that lets your build forms for your django-cms project 
+[cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) lets your build forms for your django CMS project 
 with exactly the fields you want in the order you want with a minimal effort. 
 
-There are "auto" fields, e.g. to submit the referral page or additional, hidden value. 
+Beside the regular input fields, here are "auto" fields, e.g. to submit the referral page or additional, hidden values. 
 The form will be submitted to a per form defined email address. This allows to cover a lot of 
-usecases with a single and simple cmsplugin. 
+use cases with a single and simple cmsplugin. 
 
 cmsplugin_contact_plus is licensed under The MIT License.
 
@@ -87,4 +86,4 @@ Fixed indentation /EOF in setup.py
 Fixed IndentationError in setup.py
 
 ### 1.0.0
-[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License.
+[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License. This plugin was build on a fork of [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact). Kudos! 
