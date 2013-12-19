@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name = 'cmsplugin_contact_plus',
     version = '1.1.4', 
-    packages=find_packages()
+    packages=find_packages(),
     license = 'BSD License',
     url = 'https://github.com/arteria/cmsplugin-contact-plus/',
     description = 'A django CMS plugin to dynamically create contact forms.',
