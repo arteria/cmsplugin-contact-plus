@@ -42,6 +42,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Provide examples and real life case studies
 - Multiple template support /custom templates
 - Formatted email messages, HTML?
+- Optional captcha support
 
 ## Changelog
 ### development 
