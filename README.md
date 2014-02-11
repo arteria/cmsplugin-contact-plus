@@ -11,7 +11,7 @@ cmsplugin_contact_plus is licensed under The MIT License.
 
 ## Quickstart
 
-1. To install from PyPi, in your virtualenv run
+1. To install from [PyPI](https://pypi.python.org/pypi/cmsplugin_contact_plus/), in your virtualenv run
 
 	```
 	pip install cmsplugin_contact_plus
