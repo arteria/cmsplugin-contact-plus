@@ -28,6 +28,10 @@ cmsplugin_contact_plus is licensed under The MIT License.
 
 3. Don't forget to syncdb your database.
 
+## Configuration/Settings
+
+Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email) in your projects settings to send emails from a specific address. Otherwise Django's default  'webmaster@localhost' will be used. 
+
 ## Templates
 
 Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.   
