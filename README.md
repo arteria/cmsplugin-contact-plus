@@ -47,6 +47,8 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Multiple template support /custom templates
 - Formatted email messages, HTML?
 - Optional captcha support
+- Allow to reuse forms on different pages.
+
 
 ## Changelog
 ### development 
