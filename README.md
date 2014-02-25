@@ -43,14 +43,10 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Widget support for each field.  
 - Provide examples and real life case studies
 - Multiple template support /custom templates
-<<<<<<< HEAD
 - Formatted email messages, HTML?, .as_p, ? 
-=======
-- Formatted email messages, HTML?
 - Optional captcha support
 - Allow to reuse forms on different pages.
 
->>>>>>> 434981213242d7c5ca1faafb9234fccdd624d0d4
 
 ## Changelog
 ### development 
