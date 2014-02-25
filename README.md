@@ -52,7 +52,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
-### 1.1.4
+### 1.1.5
 
 
 - Trigger a signal ``contact_message_sent`` when a message was send successfully. See signals.py .
@@ -69,7 +69,8 @@ Please have a look at the latest commits for the work-in-progress-development ve
 	To be able to use the new features, please migrate manually
 	
 	``` ALTER TABLE `cmsplugin_contactplus` ADD `template` varchar(255) NOT NULL AFTER  `submit`; ```
-	
+### 1.1.4
+
 - Packaging was modified for PyPI.
 - Upload script for PyPI. Internal note: just execute ``./upload-to-pypi.sh``.
 
