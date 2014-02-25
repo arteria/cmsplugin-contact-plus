@@ -13,6 +13,8 @@ try:
 except:
     DEFAULT_FROM_EMAIL_ADDRESS = ''
  
+import .utils as utils
+
  
 localdata = threading.local()
 localdata.TEMPLATE_CHOICES = utils.autodiscover_templates()

@@ -60,14 +60,17 @@ Please have a look at the latest commits for the work-in-progress-development ve
 
 	```
 	CMSPLUGIN_CONTACT_PLUS_TEMPLATES = [
+		('cmsplugin_contact_plus/contact.html', 'contact.html'),
         ('cmsplugin_contact_plus/hello.html', 'hello.html'),
-		# more templates
+		# more templates here
     ]
-	```
-
-
+	```  
+	
+	To be able to use the new features, please migrate manually
+	
+	``` ```
 - Packaging was modified for PyPI.
-- Upload script for PyPI. Just execute ``./upload-to-pypi.sh``.
+- Upload script for PyPI. Internal note: just execute ``./upload-to-pypi.sh``.
 
 
 ### 1.1.3
