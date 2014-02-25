@@ -35,17 +35,29 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 
 ## TODO and planned features
 - Save send data to a NoSQL database (eg. MongoDB).
-- Trigger a signal when a message was send successfully
-- and track the current status in each message record for further interaction (new, in progress, closed). 
 - Add/Update dependencies to setup.py.
 - Widget support for each field.  
 - Provide examples and real life case studies
 - Multiple template support /custom templates
-- Formatted email messages, HTML?
+- Formatted email messages, HTML?, .as_p, ? 
 
 ## Changelog
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
+
+### 1.1.4
+
+- Trigger a signal ``contact_message_sent`` when a message was send successfully. See signals.py .
+- Multiple templates support, in your project settings define  
+
+	```
+	CMSPLUGIN_CONTACT_PLUS_TEMPLATES = [
+        ('cmsplugin_contact_plus/hello.html', 'hello.html'),
+		# more templates
+    ]
+	```
+
+
 
 ### 1.1.3
 - Better readability in email.

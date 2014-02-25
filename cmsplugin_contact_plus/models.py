@@ -1,3 +1,5 @@
+import threading
+
 from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -10,6 +12,11 @@ try:
     DEFAULT_FROM_EMAIL_ADDRESS = settings.ADMINS[0][1] 
 except:
     DEFAULT_FROM_EMAIL_ADDRESS = ''
+ 
+ 
+localdata = threading.local()
+localdata.TEMPLATE_CHOICES = utils.autodiscover_templates()
+TEMPLATE_CHOICES = localdata.TEMPLATE_CHOICES
     
 class ContactPlus(CMSPlugin):
     class Meta:
@@ -18,13 +25,17 @@ class ContactPlus(CMSPlugin):
     reciepient_email = models.EmailField(_("Email of recipients"), default=DEFAULT_FROM_EMAIL_ADDRESS)
     thanks = models.TextField(_('Message displayed after submitting the contact form.'))
     submit = models.CharField(_('Text for the Submit button.'), blank=True, max_length=30)
-   
+    template = models.CharField(max_length=255,
+                                choices=TEMPLATE_CHOICES,
+                                default='cmsplugin_contact_plus/contact.html',
+                                editable=len(TEMPLATE_CHOICES) > 1)
+                                   
     def copy_relations(self, oldinstance):
         for extrafield in ExtraField.objects.filter(form__pk=oldinstance.pk):
             extrafield.pk = None
             extrafield.save()
             self.extrafield_set.add(extrafield)
-
+            
     def __unicode__(self):
         return "Contact Plus Form for %s" % self.reciepient_email 
 

@@ -8,6 +8,7 @@ from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
 from django.conf import settings
 
+from .signals import *
 
 class ContactFormPlus(forms.Form):
     
@@ -84,5 +85,6 @@ class ContactFormPlus(forms.Form):
                         # 'Reply-To': self.cleaned_data['email']
                     },)
         email_message.send(fail_silently=True)
-
+        
+        contact_message_sent.send(sender=self, data=self.cleaned_data}
             
