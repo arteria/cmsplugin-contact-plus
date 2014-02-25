@@ -13,7 +13,7 @@ try:
 except:
     DEFAULT_FROM_EMAIL_ADDRESS = ''
  
-import .utils as utils
+import utils
 
  
 localdata = threading.local()
