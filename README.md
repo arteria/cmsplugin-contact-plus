@@ -11,7 +11,7 @@ cmsplugin_contact_plus is licensed under The MIT License.
 
 ## Quickstart
 
-1. To install from PyPi, in your virtualenv run
+1. To install from [PyPI](https://pypi.python.org/pypi/cmsplugin_contact_plus/), in your virtualenv run
 
 	```
 	pip install cmsplugin_contact_plus
@@ -28,6 +28,10 @@ cmsplugin_contact_plus is licensed under The MIT License.
 
 3. Don't forget to syncdb your database.
 
+## Configuration/Settings
+
+Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email) in your projects settings to send emails from a specific address. Otherwise Django's default  'webmaster@localhost' will be used. 
+
 ## Templates
 
 Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.   
@@ -39,13 +43,21 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Widget support for each field.  
 - Provide examples and real life case studies
 - Multiple template support /custom templates
+<<<<<<< HEAD
 - Formatted email messages, HTML?, .as_p, ? 
+=======
+- Formatted email messages, HTML?
+- Optional captcha support
+- Allow to reuse forms on different pages.
+
+>>>>>>> 434981213242d7c5ca1faafb9234fccdd624d0d4
 
 ## Changelog
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
 ### 1.1.4
+
 
 - Trigger a signal ``contact_message_sent`` when a message was send successfully. See signals.py .
 - Multiple templates support, in your project settings define  
@@ -57,6 +69,9 @@ Please have a look at the latest commits for the work-in-progress-development ve
     ]
 	```
 
+
+- Packaging was modified for PyPI.
+- Upload script for PyPI. Just execute ``./upload-to-pypi.sh``.
 
 
 ### 1.1.3
