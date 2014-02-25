@@ -86,5 +86,5 @@ class ContactFormPlus(forms.Form):
                     },)
         email_message.send(fail_silently=True)
         
-        contact_message_sent.send(sender=self, data=self.cleaned_data}
+        contact_message_sent.send(sender=self, data=self.cleaned_data)
             
