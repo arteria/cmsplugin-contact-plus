@@ -51,6 +51,8 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+### 1.1.6
+
 - Bugfix, missing template info, https://github.com/arteria/cmsplugin-contact-plus/commit/1fa9236
 
 ### 1.1.5
