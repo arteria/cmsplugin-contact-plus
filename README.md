@@ -42,7 +42,6 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Add/Update dependencies to setup.py.
 - Widget support for each field.  
 - Provide examples and real life case studies
-- Multiple template support /custom templates
 - Formatted email messages, HTML?, .as_p, ? 
 - Optional captcha support
 - Allow to reuse forms on different pages.
@@ -52,8 +51,9 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
-### 1.1.5
+- Bugfix, missing template info, https://github.com/arteria/cmsplugin-contact-plus/commit/1fa9236
 
+### 1.1.5
 
 - Trigger a signal ``contact_message_sent`` when a message was send successfully. See signals.py .
 - Multiple templates support, in your project settings define  
