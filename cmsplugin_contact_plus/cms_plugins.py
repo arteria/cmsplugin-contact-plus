@@ -17,6 +17,10 @@ class CMSContactPlusPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         request = context['request']
+        
+        if instance and instance.template:
+            self.render_template = instance.template
+        
         if request.method == "POST":
             form = ContactFormPlus(contactFormInstance=instance, data=request.POST)
             if form.is_valid():
