@@ -24,7 +24,7 @@ class CMSContactPlusPlugin(CMSPluginBase):
         if request.method == "POST":
             form = ContactFormPlus(contactFormInstance=instance, request=request, data=request.POST)
             if form.is_valid():
-                form.send(instance.reciepient_email, request)
+                form.send(instance.recipient_email, request)
                 context.update({
                     'contact': instance,
                 })

@@ -73,13 +73,13 @@ class ContactFormPlus(forms.Form):
                 
                 
                 
-    def send(self, reciepient_email, request):
+    def send(self, recipient_email, request):
         current_site = Site.objects.get_current()
         email_message = EmailMessage(
             "[" + current_site.domain.upper() + "]",
                 render_to_string("cmsplugin_contact_plus/email.txt", {'data': self.cleaned_data,}),
                     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', None),
-                    to = [reciepient_email, ],
+                    to = [recipient_email, ],
                     headers = {
                         #TODO: use settings to define the label. 
                         # 'Reply-To': self.cleaned_data['email']

@@ -24,7 +24,7 @@ class ContactPlus(CMSPlugin):
     class Meta:
         verbose_name = "Contact Plus Form"
         verbose_name_plural = "Contact Plus Forms"
-    reciepient_email = models.EmailField(_("Email of recipients"), default=DEFAULT_FROM_EMAIL_ADDRESS)
+    recipient_email = models.EmailField(_("Email of recipients"), default=DEFAULT_FROM_EMAIL_ADDRESS)
     thanks = models.TextField(_('Message displayed after submitting the contact form.'))
     submit = models.CharField(_('Text for the Submit button.'), blank=True, max_length=30)
     template = models.CharField(max_length=255,
@@ -39,7 +39,7 @@ class ContactPlus(CMSPlugin):
             self.extrafield_set.add(extrafield)
             
     def __unicode__(self):
-        return "Contact Plus Form for %s" % self.reciepient_email 
+        return "Contact Plus Form for %s" % self.recipient_email 
 
 
 FIELD_TYPE = (('CharField', 'CharField'),
