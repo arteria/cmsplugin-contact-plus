@@ -71,6 +71,7 @@ Please have a look at the latest commits for the work-in-progress-development ve
 	To be able to use the new features, please migrate manually
 	
 	``` ALTER TABLE `cmsplugin_contactplus` ADD `template` varchar(255) NOT NULL AFTER  `submit`; ```
+
 ### 1.1.4
 
 - Packaging was modified for PyPI.
