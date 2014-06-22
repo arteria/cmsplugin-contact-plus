@@ -1,1 +1,5 @@
-{{ data|safe }}
+New message from the Web
+
+{% for label, value in data.items %}
+{{ label }}: {{ value }}
+{% endfor %}
