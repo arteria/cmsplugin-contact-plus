@@ -14,6 +14,7 @@ class CMSContactPlusPlugin(CMSPluginBase):
     inlines = [ExtraFieldInline, ]
     name = _('Contact Form')
     render_template = "cmsplugin_contact_plus/contact.html"
+    cache = False
 
     def render(self, context, instance, placeholder):
         request = context['request']
