@@ -83,7 +83,7 @@ class ContactFormPlus(forms.Form):
 
             for field in order:
                 key = slugify(field.label)
-                value = self.cleaned_data.get(key, '(no imput)')
+                value = self.cleaned_data.get(key, '(no input)')
                 ordered_dic_list.append({field.label: value})
             
             # self.cleaned_data = None
