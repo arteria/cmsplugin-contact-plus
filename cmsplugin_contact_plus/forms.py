@@ -82,21 +82,15 @@ class ContactFormPlus(forms.Form):
             ordered_dic_list = []
 
             for field in order:
-                key = str.lower(field.label.encode('utf8'))
-
-                if self.cleaned_data[key]:
-                    value = self.cleaned_data[key]
-                else:
-                    value = '(no imput)'
-
+                key = slugify(field.label)
+                value = self.cleaned_data.get(key, '(no imput)')
                 ordered_dic_list.append({field.label: value})
-
-            self.cleaned_data=None
+            
+            # self.cleaned_data = None
 
         email_message = EmailMessage(
             "[" + current_site.domain.upper() + "]",
-                render_to_string("cmsplugin_contact_plus/email.txt", {
-                                                                        'data': self.cleaned_data, 
+                render_to_string("cmsplugin_contact_plus/email.txt", {  'data': self.cleaned_data, 
                                                                         'ordered_data': ordered_dic_list,
                                                                         'instance': instance,
                                                                         }),
