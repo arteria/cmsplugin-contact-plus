@@ -8,6 +8,8 @@ from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
 from django.conf import settings
 
+from .models import ContactPlus
+
 from .signals import *
 
 class ContactFormPlus(forms.Form):
@@ -73,11 +75,31 @@ class ContactFormPlus(forms.Form):
                 
                 
                 
-    def send(self, recipient_email, request):
+    def send(self, recipient_email, request, instance=None):
         current_site = Site.objects.get_current()
+        if instance:
+            order = ContactPlus.objects.get(id=instance.id).extrafield_set.order_by('inline_ordering_position')
+            ordered_dic_list = []
+
+            for field in order:
+                key = str.lower(field.label.encode('utf8'))
+
+                if self.cleaned_data[key]:
+                    value = self.cleaned_data[key]
+                else:
+                    value = '(no imput)'
+
+                ordered_dic_list.append({field.label: value})
+
+            self.cleaned_data=None
+
         email_message = EmailMessage(
             "[" + current_site.domain.upper() + "]",
-                render_to_string("cmsplugin_contact_plus/email.txt", {'data': self.cleaned_data,}),
+                render_to_string("cmsplugin_contact_plus/email.txt", {
+                                                                        'data': self.cleaned_data, 
+                                                                        'ordered_data': ordered_dic_list,
+                                                                        'instance': instance,
+                                                                        }),
                     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', None),
                     to = [recipient_email, ],
                     headers = {

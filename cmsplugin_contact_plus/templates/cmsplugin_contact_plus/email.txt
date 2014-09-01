@@ -3,3 +3,6 @@ New message from the Web
 {% for label, value in data.items %}
 {{ label }}: {{ value }}
 {% endfor %}
+{% for dic in ordered_data %}{% for key, value in dic.items %}
+    {{ key }}: {{ value }}
+{% endfor %}{% endfor %}
