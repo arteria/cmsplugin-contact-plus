@@ -36,6 +36,16 @@ Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settin
 
 Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.   
 
+## Known issues
+
+### Typo in attribute's name 
+
+Affected versions: < 1.1.0 
+
+To fix / to upgrade to a version >= 1.1.0 just alter the table using the following MySQL statement:
+
+    ALTER TABLE cmsplugin_contactplus CHANGE recipient_email reciepient_email VARCHAR(75) NOT NULL;
+
 
 ## TODO and planned features
 - Save send data to a NoSQL database (eg. MongoDB).
@@ -48,7 +58,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Migrations!!
 
 ## Changelog
-### development 
+### Development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
 ### 1.1.8
