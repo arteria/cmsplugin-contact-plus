@@ -51,6 +51,10 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+### 1.1.8
+
+- Field ordering in the email is now equal to the definition.
+
 ### 1.1.7
 
 - django-cms 3.0 caching compatibility.
