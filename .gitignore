@@ -5,3 +5,5 @@
 *.pyc
 local_settings.py
 build
+cmsplugin_contact_plus.egg-info/
+dist
