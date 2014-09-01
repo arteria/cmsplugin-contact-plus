@@ -50,7 +50,10 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### Development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+### 1.1.10
+
 - Removed unordered data (cleaned_data). Now use ordered_data instead.
+- Fixed typo
 
 ### 1.1.9
 
