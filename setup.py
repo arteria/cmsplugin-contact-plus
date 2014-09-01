@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'cmsplugin_contact_plus',
-    version = '1.1.7', 
+    version = '1.1.8', 
     packages=find_packages(),
     license = 'BSD License',
     url = 'https://github.com/arteria/cmsplugin-contact-plus/',
