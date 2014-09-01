@@ -50,7 +50,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### Development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
-1.1.9
+### 1.1.9
 
 - Fixed lower() vs. slugify() for key lookup.
 
