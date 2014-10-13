@@ -50,6 +50,10 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### Development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
+### 1.1.11
+
+- Integration of a simple math captcha (PR #16)
+
 ### 1.1.10
 
 - Removed unordered data (cleaned_data). Now use ordered_data instead.
