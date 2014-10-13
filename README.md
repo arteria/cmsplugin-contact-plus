@@ -45,6 +45,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Optional captcha support
 - Allow to reuse forms on different pages.
 - Migrations!!
+- Add optional Honeypot field support.
 
 ## Changelog
 ### Development 
