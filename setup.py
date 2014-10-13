@@ -11,7 +11,17 @@ setup(
     long_description = open('README.md').read()+"\n",
     author = 'arteria GmbH',
     author_email = 'admin@arteria.ch',
-    install_requires = ['django-inline-ordering'], #TODO: add others
-    include_package_data=True
+    install_requires = open('requirements.txt').read().split('\n'), #TODO: add others
+    include_package_data=True,
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Environment :: Web Environment',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: BSD License',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
+        'Framework :: Django',
+    ],
 )
 # eof

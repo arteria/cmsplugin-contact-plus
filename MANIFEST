@@ -3,6 +3,7 @@ AUTHORS.txt
 LICENSE
 README.md
 setup.py
+requirements.txt
 cmsplugin_contact_plus/__init__.py
 cmsplugin_contact_plus/admin.py
 cmsplugin_contact_plus/cms_plugins.py
