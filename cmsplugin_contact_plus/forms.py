@@ -7,6 +7,7 @@ from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
 from django.conf import settings
+from simplemathcaptcha.fields import MathCaptchaField
 
 from .models import ContactPlus
 
@@ -64,6 +65,11 @@ class ContactFormPlus(forms.Form):
                             initial = lInitial, #NOTE: This overwrites extraField.initial! 
                             widget=forms.HiddenInput, 
                             required=False) 
+                elif extraField.fieldType == 'MathCaptcha':
+                    self.fields[slugify(extraField.label)] = MathCaptchaField(
+                                                label=extraField.label,
+                                                initial = extraField.initial,
+                                                required=True)               
                 elif extraField.fieldType == 'auto_GET_parameter':
                     lInitial = "Key/value parameter not available."
                     if request:
