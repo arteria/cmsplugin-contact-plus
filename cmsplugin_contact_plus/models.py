@@ -53,7 +53,8 @@ FIELD_TYPE = (('CharField', 'CharField'),
               ('auto_Textarea','CharField as Textarea'),    
               ('auto_hidden_input','CharField as HiddenInput'),    
               ('auto_referral_page','Referral page as HiddenInput'),         
-              ('auto_GET_parameter','GET parameter as HiddenInput'),             
+              ('auto_GET_parameter','GET parameter as HiddenInput'),  
+              ('MathCaptcha','Math Captcha'),             
 )
 
 
