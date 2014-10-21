@@ -30,7 +30,13 @@ cmsplugin_contact_plus is licensed under The MIT License.
 
 ## Configuration/Settings
 
+### ``DEFAULT_FROM_EMAIL``
+
 Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email) in your projects settings to send emails from a specific address. Otherwise Django's default  'webmaster@localhost' will be used. 
+
+### ``CONTACT_PLUS_REPLY_EMAIL_LABEL``
+
+To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_REPLY_EMAIL_LABEL`` in your project settings. If the label is "your email" for example, then set ``CONTACT_PLUS_REPLY_EMAIL_LABEL='your-email'`` - basically it's the slugified field label that is used to lookup the reply-to email address.
 
 ## Templates
 
@@ -42,7 +48,6 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Widget support for each field.  
 - Provide examples and real life case studies
 - Formatted email messages, HTML?, .as_p, ? 
-- Optional captcha support
 - Allow to reuse forms on different pages.
 - Migrations!!
 - Add optional Honeypot field support.
@@ -50,6 +55,8 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ## Changelog
 ### Development 
 Please have a look at the latest commits for the work-in-progress-development version.
+
+- Reply-to email support
 
 ### 1.1.11
 
