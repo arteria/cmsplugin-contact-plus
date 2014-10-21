@@ -92,8 +92,16 @@ class ContactFormPlus(forms.Form):
                 value = self.cleaned_data.get(key, '(no input)')
                 ordered_dic_list.append({field.label: value})
             
-            # self.cleaned_data = None
-
+        
+        # Automatically match reply-to email adress in form    
+        tmp_headers = {}
+        try:
+            reply_email_label = getattr(settings, 'CONTACT_PLUS_REPLY_EMAIL_LABEL', None)
+            if reply_email_label is not None:
+                tmp_headers.update({'Reply-To': self.cleaned_data[reply_email_label]})
+        except:
+            pass
+        
         email_message = EmailMessage(
             "[" + current_site.domain.upper() + "]",
                 render_to_string("cmsplugin_contact_plus/email.txt", {  'data': self.cleaned_data, 
@@ -102,10 +110,7 @@ class ContactFormPlus(forms.Form):
                                                                         }),
                     from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', None),
                     to = [recipient_email, ],
-                    headers = {
-                        #TODO: use settings to define the label. 
-                        # 'Reply-To': self.cleaned_data['email']
-                    },)
+                    headers = tmp_headers,)
         email_message.send(fail_silently=True)
         
         contact_message_sent.send(sender=self, data=self.cleaned_data)
