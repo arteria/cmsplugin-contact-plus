@@ -16,4 +16,3 @@ class ContactFormPlusAdmin(admin.ModelAdmin):
 
 admin.site.register(ExtraField)
 admin.site.register(ContactPlus, ContactFormPlusAdmin)
-
