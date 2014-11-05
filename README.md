@@ -57,6 +57,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 Please have a look at the latest commits for the work-in-progress-development version.
 
 - Reply-to email support
+- Added ContactRecords to store Contact History in the Database.
 
 ### 1.1.11
 

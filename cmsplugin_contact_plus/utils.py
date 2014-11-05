@@ -37,9 +37,6 @@ def autodiscover_templates():
 #        ('cmsplugin_contact_plus/hello.html', 'hello.html'),
 #    ]
 
-
-
-
     dirs_to_scan = []
     if 'django.template.loaders.app_directories.Loader' in settings.TEMPLATE_LOADERS:
         for app in settings.INSTALLED_APPS:
