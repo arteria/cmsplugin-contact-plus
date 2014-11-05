@@ -1,8 +1,7 @@
 from django.contrib import admin
 
 from inline_ordering.admin import OrderableStackedInline
-
-from .models import ExtraField, ContactPlus
+from cmsplugin_contact_plus.models import ExtraField, ContactPlus, ContactRecord
 
 
 class ExtraFieldInline(OrderableStackedInline):
@@ -15,5 +14,5 @@ class ContactFormPlusAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ExtraField)
+admin.site.register(ContactRecord)
 admin.site.register(ContactPlus, ContactFormPlusAdmin)
-

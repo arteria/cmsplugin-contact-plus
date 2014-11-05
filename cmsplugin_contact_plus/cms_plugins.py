@@ -1,12 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
-from django.forms.formsets import BaseFormSet
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
-from .admin import ExtraFieldInline
-from .models import ContactPlus
-from .forms import ContactFormPlus
+from cmsplugin_contact_plus.admin import ExtraFieldInline
+from cmsplugin_contact_plus.models import ContactPlus
+from cmsplugin_contact_plus.forms import ContactFormPlus
 
 
 class CMSContactPlusPlugin(CMSPluginBase):
@@ -18,10 +17,10 @@ class CMSContactPlusPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         request = context['request']
-        
+
         if instance and instance.template:
             self.render_template = instance.template
-        
+
         if request.method == "POST":
             form = ContactFormPlus(contactFormInstance=instance, request=request, data=request.POST)
             if form.is_valid():
@@ -34,10 +33,10 @@ class CMSContactPlusPlugin(CMSPluginBase):
                 context.update({
                     'contact': instance,
                     'form': form,
-                        
                 })
+
         else:
-            form = ContactFormPlus(contactFormInstance=instance, request=request) 
+            form = ContactFormPlus(contactFormInstance=instance, request=request)
             context.update({
                     'contact': instance,
                     'form': form,
