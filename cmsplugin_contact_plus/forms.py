@@ -106,7 +106,7 @@ class ContactFormPlus(forms.Form):
                     headers=tmp_headers,)
         email_message.send(fail_silently=True)
 
-        if self.instance.collect_records:
+        if instance.collect_records:
             record = ContactRecord(contact_form=instance, data=self.cleaned_data)
             record.save()
 
