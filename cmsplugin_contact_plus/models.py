@@ -93,7 +93,7 @@ class ExtraField(Orderable):
 
 @python_2_unicode_compatible
 class ContactRecord(Model):
-    contact_form = models.ForeignKey(ContactPlus, verbose_name=_("Contact Form"))
+    contact_form = models.ForeignKey(ContactPlus, verbose_name=_("Contact Form"), null=True, on_delete=models.SET_NULL)
     date_of_entry = models.DateTimeField(auto_now_add=True)
     date_processed = models.DateTimeField(null=True, blank=True, help_text="Date the Record was processed.")
     data = JSONField(null=True, blank=True, default={})
