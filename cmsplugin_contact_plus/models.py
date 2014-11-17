@@ -23,18 +23,22 @@ localdata = threading.local()
 localdata.TEMPLATE_CHOICES = utils.autodiscover_templates()
 TEMPLATE_CHOICES = localdata.TEMPLATE_CHOICES
 
-
+def get_current_site():
+    try:
+        current_site = Site.objects.get_current()
+    except:
+        current_site = 'example.com'
+    return _('Contact form message from {}').format(current_site)
 @python_2_unicode_compatible
 class ContactPlus(CMSPlugin):
-    title = models.CharField(_('Title'), null=True, blank=True, max_length=100, help_text="Title for the Contact Form.")
+    title = models.CharField(_('Title'), null=True, blank=True, max_length=100, help_text=_("Title for the Contact Form."))
     email_subject = models.CharField(
         max_length=256, verbose_name=_("Email subject"),
-        default=lambda: _('Contact form message from {}'.format(
-            Site.objects.get_current())))
+        default=get_current_site)
     recipient_email = models.EmailField(
         _("Email of recipients"), default=DEFAULT_FROM_EMAIL_ADDRESS)
     collect_records = models.BooleanField(
-        _('Collect Records'), default=True, help_text="If active, all records for this Form will be stored in the Database.")
+        _('Collect Records'), default=True, help_text=_("If active, all records for this Form will be stored in the Database."))
     thanks = models.TextField(
         _('Message displayed after submitting the contact form.'))
     submit = models.CharField(
@@ -58,7 +62,7 @@ class ContactPlus(CMSPlugin):
     def __str__(self):
         if self.title:
             return self.title
-        return "Contact Plus Form for %s" % self.recipient_email
+        return _("Contact Plus Form for %s") % self.recipient_email
 
 
 FIELD_TYPE = (('CharField', 'CharField'),
@@ -68,10 +72,10 @@ FIELD_TYPE = (('CharField', 'CharField'),
               ('FloatField', 'FloatField'),
               ('IntegerField', 'IntegerField'),
               ('IPAddressField', 'IPAddressField'),
-              ('auto_Textarea', 'CharField as Textarea'),
-              ('auto_hidden_input', 'CharField as HiddenInput'),
-              ('auto_referral_page', 'Referral page as HiddenInput'),
-              ('auto_GET_parameter', 'GET parameter as HiddenInput'))
+              ('auto_Textarea', _('CharField as Textarea')),
+              ('auto_hidden_input', _('CharField as HiddenInput')),
+              ('auto_referral_page', _('Referral page as HiddenInput')),
+              ('auto_GET_parameter', _('GET parameter as HiddenInput')))
 
 
 @python_2_unicode_compatible
@@ -85,7 +89,7 @@ class ExtraField(Orderable):
         _('Mandatory field'), default=True)
     widget = models.CharField(
         _('Widget'), max_length=250, blank=True, null=True,
-        help_text="Will be ignored in the current version.")
+        help_text=_("Will be ignored in the current version."))
 
     def __str__(self):
         return self.label
@@ -95,7 +99,7 @@ class ExtraField(Orderable):
 class ContactRecord(Model):
     contact_form = models.ForeignKey(ContactPlus, verbose_name=_("Contact Form"), null=True, on_delete=models.SET_NULL)
     date_of_entry = models.DateTimeField(auto_now_add=True)
-    date_processed = models.DateTimeField(null=True, blank=True, help_text="Date the Record was processed.")
+    date_processed = models.DateTimeField(null=True, blank=True, help_text=_("Date the Record was processed."))
     data = JSONField(null=True, blank=True, default={})
 
     class Meta():
@@ -111,4 +115,6 @@ class ContactRecord(Model):
             return False
 
     def __str__(self):
-        return "Record for %s recorded on %s" % (self.contact_form, self.date_of_entry.strftime('%d. %b %Y'))
+        return _("Record for %(contact)s recorded on %(date)s") % {'contact':self.contact_form, 
+                                                                   'date': self.date_of_entry.strftime('%d. %b %Y') }
+ 

@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 from simplemathcaptcha.fields import MathCaptchaField
 from cmsplugin_contact_plus.models import ContactPlus, ContactRecord
@@ -54,9 +55,9 @@ class ContactFormPlus(forms.Form):
                             widget=forms.HiddenInput,
                             required=False)
                 elif extraField.fieldType == 'auto_referral_page':
-                    lInitial = "No referral available."
+                    lInitial = _("No referral available.")
                     if request:
-                        lInitial = request.META.get('HTTP_REFERER', 'No referral available.')
+                        lInitial = request.META.get('HTTP_REFERER', _('No referral available.'))
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label,
                             initial=lInitial,  # NOTE: This overwrites extraField.initial!
                             widget=forms.HiddenInput,
@@ -67,7 +68,7 @@ class ContactFormPlus(forms.Form):
                                                 initial=extraField.initial,
                                                 required=True)
                 elif extraField.fieldType == 'auto_GET_parameter':
-                    lInitial = "Key/value parameter not available."
+                    lInitial = _("Key/value parameter not available.")
                     if request:
                         lInitial = request.GET.get(slugify(extraField.label), 'n/a')
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label,
