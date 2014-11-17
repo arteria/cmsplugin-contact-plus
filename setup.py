@@ -8,7 +8,7 @@ import cmsplugin_contact_plus as app
 
 def long_description():
     try:
-        return open(join(dirname(__file__), 'README.rst')).read()
+        return open(join(dirname(__file__), 'README.md')).read()
     except IOError:
         return "LONG_DESCRIPTION Error"
 

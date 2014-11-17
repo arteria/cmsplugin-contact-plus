@@ -42,6 +42,9 @@ To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_R
 
 Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.
 
+## Notes
+- Mirgations are available with django-cms >= 3.0.6, cause we depend on [this](https://github.com/divio/django-cms/blob/3.0.6/cms/migrations_django/0003_auto_20140926_2347.py) migrations file.
+
 ## TODO and planned features
 - Add/Update dependencies to setup.py.
 - Widget support for each field.
