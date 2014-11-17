@@ -40,21 +40,33 @@ To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_R
 
 ## Templates
 
-Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.   
+Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.
 
 ## TODO and planned features
-- Save send data to a NoSQL database (eg. MongoDB).
 - Add/Update dependencies to setup.py.
-- Widget support for each field.  
+- Widget support for each field.
 - Provide examples and real life case studies
 - Formatted email messages, HTML?, .as_p, ? 
 - Allow to reuse forms on different pages.
-- Migrations!!
 - Add optional Honeypot field support.
+- Support more Languages
+
+## Done
+- Migrations
+- Save sent data in the database.
 
 ## Changelog
 ### Development 
 Please have a look at the latest commits for the work-in-progress-development version.
+
+- .
+
+### 1.1.13 - 17.11.2014
+
+- Adding Spanish translation
+- Support migrations for django __1.7__ and django cms __3.0.6__
+
+### 1.1.12
 
 - Reply-to email support
 - Added ContactRecords to store Contact History in the Database.
@@ -87,7 +99,7 @@ Please have a look at the latest commits for the work-in-progress-development ve
 ### 1.1.5
 
 - Trigger a signal ``contact_message_sent`` when a message was send successfully. See signals.py .
-- Multiple templates support, in your project settings define  
+- Multiple templates support, in your project settings define
 
 	```
 	CMSPLUGIN_CONTACT_PLUS_TEMPLATES = [
@@ -95,7 +107,7 @@ Please have a look at the latest commits for the work-in-progress-development ve
         ('cmsplugin_contact_plus/hello.html', 'hello.html'),
 		# more templates here
     ]
-	```  
+	```
 	
 	To be able to use the new features, please migrate manually
 	
@@ -117,7 +129,7 @@ Please have a look at the latest commits for the work-in-progress-development ve
 - Added include for templates im Manifest.in, fixes issue #4.
 
 ### 1.1.0
-- Generic Query parameter (GET key) to hidden field. Use this in attach additional hidden data to the form. The slugified label is used for key lookup in the GET parameters. Eg.:  
+- Generic Query parameter (GET key) to hidden field. Use this in attach additional hidden data to the form. The slugified label is used for key lookup in the GET parameters. Eg.:
 label is 'Favorite Color', than the lookup in the URL is done based on 'favorite-color', in www.example.com?favorite-color=blue will pass {..., u'favorite-color':'blue', ...}  to the email.
 
 
