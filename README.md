@@ -42,6 +42,19 @@ To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_R
 
 Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.
 
+
+## Features
+- Dynamic form creation
+- Migrations included
+- Store data in the database 
+- Multiple languages: currently English and Spanish translations
+- Simple math captcha
+- django CMS 3.0 compatible
+- Template support
+- Track/pass hidden data
+- Signals
+- ...
+
 ## Notes
 - Mirgations are available with django-cms >= 3.0.6, cause we depend on [this](https://github.com/divio/django-cms/blob/3.0.6/cms/migrations_django/0003_auto_20140926_2347.py) migrations file.
 
@@ -53,10 +66,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Allow to reuse forms on different pages.
 - Add optional Honeypot field support.
 - Support more Languages
-
-## Done
-- Migrations
-- Save sent data in the database.
+- Your great feature
 
 ## Changelog
 ### Development 
@@ -93,7 +103,7 @@ Please have a look at the latest commits for the work-in-progress-development ve
 
 ### 1.1.7
 
-- django-cms 3.0 caching compatibility.
+- django CMS 3.0 caching compatibility.
 
 ### 1.1.6
 
@@ -107,9 +117,9 @@ Please have a look at the latest commits for the work-in-progress-development ve
 	```
 	CMSPLUGIN_CONTACT_PLUS_TEMPLATES = [
 		('cmsplugin_contact_plus/contact.html', 'contact.html'),
-        ('cmsplugin_contact_plus/hello.html', 'hello.html'),
+		('cmsplugin_contact_plus/hello.html', 'hello.html'),
 		# more templates here
-    ]
+    	]
 	```
 	
 	To be able to use the new features, please migrate manually
