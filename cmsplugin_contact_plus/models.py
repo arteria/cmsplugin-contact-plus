@@ -4,6 +4,8 @@ from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from django.utils.encoding import python_2_unicode_compatible 
+
 from cms.models import CMSPlugin
 
 from inline_ordering.models import Orderable
@@ -21,9 +23,8 @@ localdata.TEMPLATE_CHOICES = utils.autodiscover_templates()
 TEMPLATE_CHOICES = localdata.TEMPLATE_CHOICES
 
 
+@python_2_unicode_compatible
 class ContactPlus(CMSPlugin):
-    verbose_name='Contact Plus'
-    verbose_name_plural='Contact Plus'
 
     class Meta:
         verbose_name = "Contact Plus Form"
@@ -48,8 +49,8 @@ class ContactPlus(CMSPlugin):
             extrafield.save()
             self.extrafield_set.add(extrafield)
 
-    def __unicode__(self):
-        return u"Contact Plus Form for %s" % self.recipient_email
+    def __str__(self):
+        return "Contact Plus Form for %s" % self.recipient_email
 
 
 FIELD_TYPE = (('CharField', 'CharField'),
@@ -67,9 +68,12 @@ FIELD_TYPE = (('CharField', 'CharField'),
               )
 
 
+@python_2_unicode_compatible
 class ExtraField(Orderable):
-    verbose_name='Extra Field'
-    verbose_name_plural='Extra Fields'
+
+    class Meta:
+        verbose_name='Extra Field'
+        verbose_name_plural='Extra Fields'
 
     form = models.ForeignKey(ContactPlus, verbose_name=_("Contact Form"))
     label = models.CharField(_('Label'), max_length=100)
@@ -87,5 +91,5 @@ class ExtraField(Orderable):
         null=True,
         help_text="Will be ignored in the current version.")
 
-    def __unicode__(self):
-        return u'%s' % (self.label)
+    def __str__(self):
+        return '%s' % (self.label)
