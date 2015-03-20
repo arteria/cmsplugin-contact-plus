@@ -54,7 +54,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Template support
 - Track/pass hidden data
 - Signals
-- Multiple file fields
+- Multiple file and image fields for media upload
 - ...
 
 ## Notes
@@ -67,7 +67,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Widget support for each field.
 - Provide examples and real life case studies
 - Formatted email messages, HTML?, .as_p, ? 
-- Allow to reuse forms on different pages.
+- Allow to re-use forms on different pages.
 - Add optional Honeypot field support.
 - Support more Languages
 - (Your great feature here)
@@ -76,9 +76,11 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### Development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
-- Multiple file fields / Upload files, upload will be placed directly into ``MEDIA_ROOT``. 
+### 1.1.14 - 20. 03. 2015
 
-### 1.1.13 - 17.11.2014
+- Multiple file and image fields / Upload files and images, upload will be placed directly into ``MEDIA_ROOT``. 
+
+### 1.1.13 - 17. 11. 2014
 
 - Adding Spanish translation
 - Support migrations for django __1.7__ and django cms __3.0.6__
