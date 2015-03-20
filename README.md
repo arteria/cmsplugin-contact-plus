@@ -66,7 +66,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Allow to reuse forms on different pages.
 - Add optional Honeypot field support.
 - Support more Languages
-- Your great feature
+- (Your great feature here)
 
 ## Changelog
 ### Development 

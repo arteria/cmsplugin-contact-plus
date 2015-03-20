@@ -36,6 +36,10 @@ class ContactFormPlus(forms.Form):
                     self.fields[slugify(extraField.label)] = forms.FloatField(label=extraField.label,
                             initial=extraField.initial,
                             required=extraField.required)
+                elif extraField.fieldType == 'FileField':
+                    self.fields[slugify(extraField.label)] = forms.FileField(label=extraField.label,
+                            initial=extraField.initial,
+                            required=extraField.required)
                 elif extraField.fieldType == 'IntegerField':
                     self.fields[slugify(extraField.label)] = forms.IntegerField(label=extraField.label,
                             initial=extraField.initial,
