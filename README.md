@@ -44,6 +44,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 
 
 ## Features
+
 - Dynamic form creation
 - Migrations included
 - Store data in the database 
@@ -53,10 +54,13 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 - Template support
 - Track/pass hidden data
 - Signals
+- Multiple file fields
 - ...
 
 ## Notes
+
 - Mirgations are available with django-cms >= 3.0.6, cause we depend on [this](https://github.com/divio/django-cms/blob/3.0.6/cms/migrations_django/0003_auto_20140926_2347.py) migrations file.
+- Collecting data is not available if ``from.is_multipart is True`` (= the form has attached files)
 
 ## TODO and planned features
 - Add/Update dependencies to setup.py.
@@ -72,7 +76,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 ### Development 
 Please have a look at the latest commits for the work-in-progress-development version.
 
-- .
+- Multiple file fields / Upload files, upload will be placed directly into ``MEDIA_ROOT``. 
 
 ### 1.1.13 - 17.11.2014
 

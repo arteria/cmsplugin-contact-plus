@@ -36,8 +36,12 @@ class ContactFormPlus(forms.Form):
                     self.fields[slugify(extraField.label)] = forms.FloatField(label=extraField.label,
                             initial=extraField.initial,
                             required=extraField.required)
-                elif extraField.fieldType == 'FileField':
+                elif extraField.fieldType == 'FileField': 
                     self.fields[slugify(extraField.label)] = forms.FileField(label=extraField.label,
+                            initial=extraField.initial,
+                            required=extraField.required)
+                elif extraField.fieldType == 'ImageField': 
+                    self.fields[slugify(extraField.label)] = forms.ImageField(label=extraField.label,
                             initial=extraField.initial,
                             required=extraField.required)
                 elif extraField.fieldType == 'IntegerField':
@@ -80,7 +84,7 @@ class ContactFormPlus(forms.Form):
                             widget=forms.HiddenInput,
                             required=False)
 
-    def send(self, recipient_email, request, instance=None):
+    def send(self, recipient_email, request, instance=None, multipart=False):
         current_site = Site.objects.get_current()
         if instance:
             order = ContactPlus.objects.get(id=instance.id).extrafield_set.order_by('inline_ordering_position')
@@ -111,8 +115,8 @@ class ContactFormPlus(forms.Form):
                     headers=tmp_headers,)
         email_message.send(fail_silently=True)
 
-        if instance.collect_records:
+        if instance.collect_records and not multipart:
             record = ContactRecord(contact_form=instance, data=self.cleaned_data)
             record.save()
-
+    
         contact_message_sent.send(sender=self, data=self.cleaned_data)

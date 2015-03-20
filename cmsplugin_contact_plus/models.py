@@ -78,8 +78,9 @@ FIELD_TYPE = (('CharField', 'CharField'),
               ('DecimalField', 'DecimalField'),
               ('FloatField', 'FloatField'),
               ('IntegerField', 'IntegerField'),
+              ('FileField', 'FileField'),
+              ('ImageField', 'ImageField'),
               ('IPAddressField', 'IPAddressField'),
-              ('FileField','FileField'),
               ('auto_Textarea', _('CharField as Textarea')),
               ('auto_hidden_input', _('CharField as HiddenInput')),
               ('auto_referral_page', _('Referral page as HiddenInput')),
@@ -88,6 +89,8 @@ FIELD_TYPE = (('CharField', 'CharField'),
 
 @python_2_unicode_compatible
 class ExtraField(Orderable):
+    """
+    """
     form = models.ForeignKey(ContactPlus, verbose_name=_("Contact Form"))
     label = models.CharField(_('Label'), max_length=100)
     fieldType = models.CharField(max_length=100, choices=FIELD_TYPE)
@@ -105,6 +108,8 @@ class ExtraField(Orderable):
 
 @python_2_unicode_compatible
 class ContactRecord(Model):
+    """
+    """
     contact_form = models.ForeignKey(ContactPlus, verbose_name=_("Contact Form"), null=True, on_delete=models.SET_NULL)
     date_of_entry = models.DateTimeField(auto_now_add=True)
     date_processed = models.DateTimeField(null=True, blank=True, help_text=_("Date the Record was processed."))

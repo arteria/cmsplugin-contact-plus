@@ -1,8 +1,16 @@
 {% if form %}
-	<form action="" method="POST">{% csrf_token %}
+    {% if form.is_multipart %}
+        <form enctype="multipart/form-data" method="POST" action="">
+    {% else %}
+       <form method="POST" action="">
+    {% endif %}
+	{% csrf_token %}
 		{{ form.as_p }}
 		<input type="submit"{% if contact.submit %} value="{{ contact.submit }}"{% endif %} />
 	</form>
 {% else %}
 	{{ contact.thanks|safe }}
 {% endif %}
+
+
+    
