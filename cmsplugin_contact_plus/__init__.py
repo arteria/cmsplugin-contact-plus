@@ -1,1 +1,4 @@
-__version__ = '1.1.11'
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+__version__ = '1.1.14'
