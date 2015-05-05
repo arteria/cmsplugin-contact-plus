@@ -1,9 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import os
 from os.path import join, dirname
+import sys
+import cmsplugin_contact_plus
+
 from setuptools import setup, find_packages
-import cmsplugin_contact_plus as app
 
 
 def long_description():
@@ -12,10 +15,11 @@ def long_description():
     except IOError:
         return "LONG_DESCRIPTION Error"
 
+version = cmsplugin_contact_plus.__version__
 
 setup(
     name='cmsplugin_contact_plus',
-    version=app.__version__,
+    version=version,
     packages=find_packages(),
     license='BSD License',
     url='https://github.com/arteria/cmsplugin-contact-plus/',
@@ -24,7 +28,7 @@ setup(
     author='arteria GmbH',
     author_email='admin@arteria.ch',
     # TODO: add others
-    install_requires=open('requirements.txt').read().split('\n'),
+    install_requires=open('requirements.txt').read().splitlines(),
     include_package_data=True,
     classifiers=[
         'Development Status :: 5 - Production/Stable',

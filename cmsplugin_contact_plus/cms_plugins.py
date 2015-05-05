@@ -7,8 +7,12 @@ from cmsplugin_contact_plus.admin import ExtraFieldInline
 from cmsplugin_contact_plus.models import ContactPlus
 from cmsplugin_contact_plus.forms import ContactFormPlus
 
-def handle_uploaded_file(f):
-    destination = open('%s/%s' % (settings.MEDIA_ROOT, f.name), 'wb+')
+
+import time
+
+def handle_uploaded_file(f, ts):    
+    destination = open('%s/%s' % (settings.MEDIA_ROOT, ts + '-' + f.name), 'wb+')
+
     for chunk in f.chunks():
         destination.write(chunk)
     destination.close()
@@ -35,10 +39,13 @@ class CMSContactPlusPlugin(CMSPluginBase):
                     data=request.POST, 
                     files=request.FILES)
             if form.is_valid():
+                ts = str(int(time.time()))
+
                 for fl in request.FILES:
                     for f in request.FILES.getlist(fl):
-                        handle_uploaded_file(f)
-                form.send(instance.recipient_email, request, instance, form.is_multipart)
+                        handle_uploaded_file(f, ts)
+
+                form.send(instance.recipient_email, request, ts, instance, form.is_multipart)
                 context.update({
                     'contact': instance,
                 })

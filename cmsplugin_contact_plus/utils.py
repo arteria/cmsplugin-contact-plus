@@ -27,7 +27,7 @@ def autodiscover_templates():
     if TEMPLATES:
         return TEMPLATES
 
-    #override templates from settings
+    # override templates from settings
     override_dir = getattr(settings, 'CMSPLUGIN_CONTACT_PLUS_TEMPLATES', None)
     if override_dir:
         return sorted_templates(override_dir)
@@ -43,13 +43,14 @@ def autodiscover_templates():
             _ = __import__(app)
             dir = os.path.dirname(_.__file__)
             if not dir in dirs_to_scan:
-                #append 'templates' for app directories
+                # append 'templates' for app directories
                 dirs_to_scan.append(os.path.join(dir, 'templates'))
 
     if 'django.template.loaders.filesystem.Loader' in settings.TEMPLATE_LOADERS:
         for dir in settings.TEMPLATE_DIRS:
             if not dir in dirs_to_scan:
-                #filesystem loader assumes our templates in 'templates' already
+                # filesystem loader assumes our templates in 'templates'
+                # already
                 dirs_to_scan.append(dir)
 
     for dir in dirs_to_scan:
@@ -63,6 +64,6 @@ def autodiscover_templates():
                     f = True
             if not f:
                 templates.append((key, value,))
-            #print os.path.basename(file)
+            # print os.path.basename(file)
 
     return sorted_templates(templates)

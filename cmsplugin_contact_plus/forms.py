@@ -12,6 +12,7 @@ from cmsplugin_contact_plus.signals import contact_message_sent
 
 
 class ContactFormPlus(forms.Form):
+
     def __init__(self, contactFormInstance, request, *args, **kwargs):
         super(ContactFormPlus, self).__init__(*args, **kwargs)
         if 'instance' not in kwargs:
@@ -84,15 +85,21 @@ class ContactFormPlus(forms.Form):
                             widget=forms.HiddenInput,
                             required=False)
 
-    def send(self, recipient_email, request, instance=None, multipart=False):
+    def send(self, recipient_email, request, ts, instance=None, multipart=False):
         current_site = Site.objects.get_current()
         if instance:
             order = ContactPlus.objects.get(id=instance.id).extrafield_set.order_by('inline_ordering_position')
             ordered_dic_list = []
-
             for field in order:
                 key = slugify(field.label)
                 value = self.cleaned_data.get(key, '(no input)')
+                # redefine value for files... 
+                if field.fieldType in ["FileField", "ImageField"]:
+                    val = ts + '-' + str(value)
+                    if settings.MEDIA_URL.startswith("http"):
+                        value = "%s%s" % (settings.MEDIA_URL, val)
+                    else:
+                        value = "http://%s%s%s" % (current_site, settings.MEDIA_URL, val)
                 ordered_dic_list.append({field.label: value})
 
         # Automatically match reply-to email adress in form
@@ -115,8 +122,8 @@ class ContactFormPlus(forms.Form):
                     headers=tmp_headers,)
         email_message.send(fail_silently=True)
 
-        if instance.collect_records and not multipart:
-            record = ContactRecord(contact_form=instance, data=self.cleaned_data)
+        if instance.collect_records:# and not multipart:
+            record = ContactRecord(contact_form=instance, data=ordered_dic_list)#self.cleaned_data)
             record.save()
-    
+
         contact_message_sent.send(sender=self, data=self.cleaned_data)
