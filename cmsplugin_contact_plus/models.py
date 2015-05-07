@@ -16,7 +16,7 @@ try:
 except:
     DEFAULT_FROM_EMAIL_ADDRESS = ''
 
-import utils
+from cmsplugin_contact_plus import utils
 
 
 localdata = threading.local()
