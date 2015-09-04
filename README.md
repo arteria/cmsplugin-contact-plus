@@ -1,13 +1,12 @@
 # About cmsplugin_contact_plus
 
-[cmsplugin_contact_plus](https://github.com/arteria/cmsplugin-contact-plus/) lets your build forms for your django CMS project 
+[cmsplugin-contact-plus](https://github.com/arteria/cmsplugin-contact-plus/) lets you build forms for your Django CMS project 
 with exactly the fields you want in the order you want with a minimal effort. 
 
-Beside the regular input fields, there are "auto" fields, for example to submit the referral page or additional, hidden values. 
-The form will be submitted to a per form defined email address. This allows to cover a lot of 
-use cases with a single and simple cmsplugin. 
+Beside the regular input fields there are "auto" fields, for example to submit the referral page, or additional, hidden values. 
+The form will be submitted to an email address that is defined per form. This allows to cover a lot of use cases with a single and simple plugin. 
 
-cmsplugin_contact_plus is licensed under The MIT License.
+cmsplugin-contact-plus is licensed under the MIT License.
 
 ## Quickstart
 
@@ -17,16 +16,17 @@ cmsplugin_contact_plus is licensed under The MIT License.
 	pip install cmsplugin_contact_plus
 	```
 	
-	or to get the latest commit from GitHub
+	or to get the latest commit from GitHub,
 	 
 	```
 	pip install -e git+git://github.com/arteria/cmsplugin-contact-plus.git#egg=cmsplugin_contact_plus
 	```
 	
 
-2. Put ``cmsplugin_contact_plus`` in your INSTALLED_APPS settings.py section and verify that [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) is defined as well.
+2. Put ``cmsplugin_contact_plus`` in your INSTALLED_APPS `settings.py` section and verify that the [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) setting is set as well.
 
-3. Don't forget to syncdb your database.
+3. Don't forget to migrate your database.
+4. Configure Django's [e-mail settings](https://docs.djangoproject.com/en/1.8/topics/email/#quick-example) appropriately.
 
 ## Configuration/Settings
 
@@ -36,12 +36,11 @@ Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settin
 
 ### ``CONTACT_PLUS_REPLY_EMAIL_LABEL``
 
-To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_REPLY_EMAIL_LABEL`` in your project settings. If the label is "your email" for example, then set ``CONTACT_PLUS_REPLY_EMAIL_LABEL='your-email'`` - basically it's the slugified field label that is used to lookup the reply-to email address.
+To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_REPLY_EMAIL_LABEL`` in your project settings. If the label is "your email" for example, then set ``CONTACT_PLUS_REPLY_EMAIL_LABEL='your-email'`` - basically it's the slugified field label that is used to look up the reply-to email address.
 
 ## Templates
 
-Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``TEMPLATE_LOADERS`` in your settings.py.
-
+If you are not using the default template settings of Django, make sure that  ``'django.template.loaders.app_directories.Loader'`` is added to the [`TEMPLATES.OPTIONS.loaders`](https://docs.djangoproject.com/en/1.8/ref/templates/upgrading/#the-templates-settings) list in your `settings.py` file. Likewise, if your Django version is < 1.8, make sure that the above-mentioned loader is in your list of [`TEMPLATE_LOADERS`](https://docs.djangoproject.com/en/1.8/ref/settings/#template-loaders).
 
 ## Features
 
@@ -59,7 +58,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 
 ## Notes
 
-- Mirgations are available with django-cms >= 3.0.6, cause we depend on [this](https://github.com/divio/django-cms/blob/3.0.6/cms/migrations_django/0003_auto_20140926_2347.py) migrations file.
+- Migrations are available with django-cms >= 3.0.6 because we depend on [this](https://github.com/divio/django-cms/blob/3.0.6/cms/migrations_django/0003_auto_20140926_2347.py) migrations file.
 - Collecting data is not available if ``from.is_multipart is True`` (= the form has attached files)
 
 ## TODO and planned features
@@ -74,7 +73,7 @@ Do not forget to add ``'django.template.loaders.app_directories.Loader'`` to ``T
 
 ## Changelog
 ### Development 
-Please have a look at the latest commits for the work-in-progress-development version.
+Please have a look at the latest commits for the work-in-progress development version.
 
 ### 1.1.14 - 20. 03. 2015
 
@@ -117,7 +116,7 @@ Please have a look at the latest commits for the work-in-progress-development ve
 
 ### 1.1.5
 
-- Trigger a signal ``contact_message_sent`` when a message was send successfully. See signals.py .
+- Trigger a signal ``contact_message_sent`` when a message was sent successfully. See signals.py .
 - Multiple templates support, in your project settings define
 
 	```
@@ -157,12 +156,12 @@ label is 'Favorite Color', than the lookup in the URL is done based on 'favorite
 - Fixed typos and added translation markers.
 
 ### 1.0.3
-- Improoved Documentation
-- Added ``auto_TextArea`` shortcut to create a TextArea. Note: Currently the widget definde in the plugins are ignored. 
+- Improved Documentation
+- Added ``auto_TextArea`` shortcut to create a TextArea. Note: Currently the widget defined in the plugins are ignored. 
 - Hidden "referral page" field. Reads referral from request.
 - Generic Hidden fields. Use this in combination with JavaScript/jQuery to attach additional data to the form sent by email.
 
-For exmple, the field lable for the 'CharField as HiddenInput' is named to "Object description". 
+For example, the field lable for the 'CharField as HiddenInput' is named to "Object description". 
 Using the lable name, the ID for the input field will be 'id_object-description', the name 'object-description'.
 
 Store data is dead easy using jQuery.
@@ -180,4 +179,4 @@ Fixed indentation /EOF in setup.py
 Fixed IndentationError in setup.py
 
 ### 1.0.0
-[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License. This plugin was build on a fork of [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact). Kudos! 
+[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License. This plugin was built on a fork of [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact). Kudos! 
