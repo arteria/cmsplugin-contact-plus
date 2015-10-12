@@ -6,6 +6,7 @@ from django.template.defaultfilters import slugify
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
+from captcha.fields import ReCaptchaField
 from simplemathcaptcha.fields import MathCaptchaField
 from cmsplugin_contact_plus.models import ContactPlus, ContactRecord
 from cmsplugin_contact_plus.signals import contact_message_sent
@@ -76,6 +77,11 @@ class ContactFormPlus(forms.Form):
                                                 label=extraField.label,
                                                 initial=extraField.initial,
                                                 required=True)
+                elif extraField.fieldType == 'ReCaptcha':
+                    self.fields[slugify(extraField.label)] = ReCaptchaField(
+                                                label=extraField.label,
+                                                initial=extraField.initial,
+                                                required=True)
                 elif extraField.fieldType == 'auto_GET_parameter':
                     lInitial = _("Key/value parameter not available.")
                     if request:
@@ -89,6 +95,8 @@ class ContactFormPlus(forms.Form):
         current_site = Site.objects.get_current()
         if instance:
             order = ContactPlus.objects.get(id=instance.id).extrafield_set.order_by('inline_ordering_position')
+            excluded_field_types = ['MathCaptcha', 'ReCaptcha']
+            order = [field for field in order if field.fieldType not in excluded_field_types]
             ordered_dic_list = []
             for field in order:
                 key = slugify(field.label)

@@ -38,6 +38,10 @@ Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settin
 
 To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_REPLY_EMAIL_LABEL`` in your project settings. If the label is "your email" for example, then set ``CONTACT_PLUS_REPLY_EMAIL_LABEL='your-email'`` - basically it's the slugified field label that is used to look up the reply-to email address.
 
+### reCAPTCHA
+
+To make the reCAPTCHA field type available to your users, add `'captcha'` to your `INSTALLED_APPS` and define your `RECAPTCHA_PUBLIC_KEY` and `RECAPTCHA_PRIVATE_KEY` as described in [django-recaptcha's README](https://github.com/praekelt/django-recaptcha/blob/develop/README.rst). A single reCAPTCHA instance per page is supported.
+
 ## Templates
 
 If you are not using the default template settings of Django, make sure that  ``'django.template.loaders.app_directories.Loader'`` is added to the [`TEMPLATES.OPTIONS.loaders`](https://docs.djangoproject.com/en/1.8/ref/templates/upgrading/#the-templates-settings) list in your `settings.py` file. Likewise, if your Django version is < 1.8, make sure that the above-mentioned loader is in your list of [`TEMPLATE_LOADERS`](https://docs.djangoproject.com/en/1.8/ref/settings/#template-loaders).
@@ -48,7 +52,7 @@ If you are not using the default template settings of Django, make sure that  ``
 - Migrations included
 - Store data in the database 
 - Multiple languages: currently English and Spanish translations
-- Simple math captcha
+- reCAPTCHA and simple math captcha
 - django CMS 3.0 compatible
 - Template support
 - Track/pass hidden data

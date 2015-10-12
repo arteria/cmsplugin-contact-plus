@@ -72,6 +72,11 @@ class ContactPlus(CMSPlugin):
         return _("Contact Plus Form for %s") % self.recipient_email
 
 
+def recaptcha_installed():
+    return ('captcha' in settings.INSTALLED_APPS and
+            all([hasattr(settings, s)
+                for s in ['RECAPTCHA_PUBLIC_KEY', 'RECAPTCHA_PRIVATE_KEY']]))
+
 FIELD_TYPE = (('CharField', 'CharField'),
               ('BooleanField', 'BooleanField'),
               ('EmailField', 'EmailField'),
@@ -81,11 +86,13 @@ FIELD_TYPE = (('CharField', 'CharField'),
               ('FileField', 'FileField'),
               ('ImageField', 'ImageField'),
               ('IPAddressField', 'IPAddressField'),
-              ('MathCaptcha','Math Captcha'),
+              ('MathCaptcha', 'Math Captcha'),
               ('auto_Textarea', _('CharField as Textarea')),
               ('auto_hidden_input', _('CharField as HiddenInput')),
               ('auto_referral_page', _('Referral page as HiddenInput')),
               ('auto_GET_parameter', _('GET parameter as HiddenInput')))
+if recaptcha_installed():
+    FIELD_TYPE += (('ReCaptcha', 'reCAPTCHA'),)
 
 
 @python_2_unicode_compatible
