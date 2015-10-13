@@ -6,6 +6,8 @@ import django.db.models.deletion
 import cmsplugin_contact_plus.models
 import jsonfield.fields
 
+from cmsplugin_contact_plus.models import FIELD_TYPE
+
 
 class Migration(migrations.Migration):
 
@@ -54,7 +56,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('inline_ordering_position', models.IntegerField(null=True, blank=True)),
                 ('label', models.CharField(max_length=100, verbose_name='Label')),
-                ('fieldType', models.CharField(max_length=100, choices=[(b'CharField', b'CharField'), (b'BooleanField', b'BooleanField'), (b'EmailField', b'EmailField'), (b'DecimalField', b'DecimalField'), (b'FloatField', b'FloatField'), (b'IntegerField', b'IntegerField'), (b'IPAddressField', b'IPAddressField'), (b'auto_Textarea', b'CharField as Textarea'), (b'auto_hidden_input', b'CharField as HiddenInput'), (b'auto_referral_page', b'Referral page as HiddenInput'), (b'auto_GET_parameter', b'GET parameter as HiddenInput')])),
+                ('fieldType', models.CharField(max_length=100, choices=FIELD_TYPE)),
                 ('initial', models.CharField(max_length=250, null=True, verbose_name='Inital Value', blank=True)),
                 ('required', models.BooleanField(default=True, verbose_name='Mandatory field')),
                 ('widget', models.CharField(help_text='Will be ignored in the current version.', max_length=250, null=True, verbose_name='Widget', blank=True)),
