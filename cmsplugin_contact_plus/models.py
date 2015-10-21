@@ -41,7 +41,8 @@ class ContactPlus(CMSPlugin):
             verbose_name=_("Email subject"),
             default=get_current_site)
     recipient_email = models.EmailField(_("Email of recipients"), 
-            default=DEFAULT_FROM_EMAIL_ADDRESS)
+            default=DEFAULT_FROM_EMAIL_ADDRESS,
+            max_length=254)
     collect_records = models.BooleanField(_('Collect Records'), 
             default=True, 
             help_text=_("If active, all records for this Form will be stored in the Database."))
