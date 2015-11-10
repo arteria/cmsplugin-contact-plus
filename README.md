@@ -58,15 +58,14 @@ If you are not using the default template settings of Django, make sure that  ``
 - Track/pass hidden data
 - Signals
 - Multiple file and image fields for media upload
-- ...
+- Handle multiple forms located on the same page
 
 ## Notes
 
 - Migrations are available with django-cms >= 3.0.6 because we depend on [this](https://github.com/divio/django-cms/blob/3.0.6/cms/migrations_django/0003_auto_20140926_2347.py) migrations file.
 - Collecting data is not available if ``from.is_multipart is True`` (= the form has attached files)
 
-## TODO and planned features
-- Add/Update dependencies to setup.py.
+## TODO and planned features .
 - Widget support for each field.
 - Provide examples and real life case studies
 - Formatted email messages, HTML?, .as_p, ? 
@@ -78,6 +77,14 @@ If you are not using the default template settings of Django, make sure that  ``
 ## Changelog
 ### Development 
 Please have a look at the latest commits for the work-in-progress development version.
+
+### 1.1.25 - 10. 11. 2015
+
+- Handle multiple forms located on the same page. See the two relevant commits [7749d44](https://github.com/arteria/cmsplugin-contact-plus/commit/7749d44d39f1b106a1b4c980615fab7a6a810a37) and [b8793f7](https://github.com/arteria/cmsplugin-contact-plus/commit/b8793f7bc0ce573bbed1bb9ffa20f9b87191fa8b) for more info. Please modify your templates. 
+
+### 1.1.23 
+
+- reCAPTCHA support 
 
 ### 1.1.14 - 20. 03. 2015
 
