@@ -6,7 +6,7 @@
     {% endif %}
 	{% csrf_token %}
 		{{ form.as_p }}
-		<input type="submit"{% if contact.submit %} value="{{ contact.submit }}"{% endif %} />
+		<input type="submit" name="contact_plus_form_{{ contact.id }}" {% if contact.submit %} value="{{ contact.submit }}"{% endif %} />
 	</form>
 {% else %}
 	{{ contact.thanks|safe }}
