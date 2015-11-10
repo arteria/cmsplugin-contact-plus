@@ -33,7 +33,7 @@ class CMSContactPlusPlugin(CMSPluginBase):
         if instance and instance.template:
             self.render_template = instance.template
 
-        if request.method == "POST":
+        if request.method == "POST" and "contact_plus_form_" + str(instance.id) in request.POST.keys():
             form = ContactFormPlus(contactFormInstance=instance, 
                     request=request, 
                     data=request.POST, 
