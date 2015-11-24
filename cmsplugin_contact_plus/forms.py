@@ -120,14 +120,15 @@ class ContactFormPlus(forms.Form):
             pass
 
         email_message = EmailMessage(
-            "[" + current_site.domain.upper() + "]",
-                render_to_string("cmsplugin_contact_plus/email.txt", {'data': self.cleaned_data,
+            subject=instance.email_subject,
+            body=render_to_string("cmsplugin_contact_plus/email.txt", {'data': self.cleaned_data,
                                                                       'ordered_data': ordered_dic_list,
                                                                       'instance': instance,
                                                                       }),
-                    from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', None),
-                    to=[recipient_email, ],
-                    headers=tmp_headers,)
+            from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', None),
+            to=[recipient_email, ],
+            headers=tmp_headers,
+        )
         email_message.send(fail_silently=True)
 
         if instance.collect_records:# and not multipart:
