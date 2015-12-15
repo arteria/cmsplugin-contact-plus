@@ -10,7 +10,7 @@ from captcha.fields import ReCaptchaField
 from simplemathcaptcha.fields import MathCaptchaField
 from cmsplugin_contact_plus.models import ContactPlus, ContactRecord
 from cmsplugin_contact_plus.signals import contact_message_sent
-
+from cmsplugin_contact_plus.utils import get_validators
 
 class ContactFormPlus(forms.Form):
 
