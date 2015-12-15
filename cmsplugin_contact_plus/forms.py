@@ -13,6 +13,7 @@ from cmsplugin_contact_plus.signals import contact_message_sent
 
 
 class ContactFormPlus(forms.Form):
+    required_css_class = getattr(settings, 'CONTACT_PLUS_REQUIRED_CSS_CLASS', 'required')
 
     def __init__(self, contactFormInstance, request, *args, **kwargs):
         super(ContactFormPlus, self).__init__(*args, **kwargs)
