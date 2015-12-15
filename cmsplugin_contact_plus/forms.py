@@ -90,6 +90,13 @@ class ContactFormPlus(forms.Form):
                             initial=lInitial,  # NOTE: This overwrites extraField.initial!
                             widget=forms.HiddenInput,
                             required=False)
+                elif extraField.fieldType == 'CharFieldWithValidator':
+                    self.fields[slugify(extraField.label)] = forms.CharField(
+                        label=extraField.label,
+                        initial=extraField.initial,
+                        required=extraField.required,
+                        validators=get_validators())
+
 
     def send(self, recipient_email, request, ts, instance=None, multipart=False):
         current_site = Site.objects.get_current()
