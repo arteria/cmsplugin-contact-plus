@@ -30,9 +30,9 @@ cmsplugin-contact-plus is licensed under the MIT License.
 
 ## Configuration/Settings
 
-### ``DEFAULT_FROM_EMAIL``
+### ``CONTACT_PLUS_FROM_EMAIL``
 
-Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email) in your projects settings to send emails from a specific address. Otherwise Django's default  'webmaster@localhost' will be used. 
+Specify ``CONTACT_PLUS_FROM_EMAIL`` in your projects settings to send emails from a specific address. Otherwise DEFAULT_FROM_EMAIL (https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email) will be used. 
 
 ### ``CONTACT_PLUS_REPLY_EMAIL_LABEL``
 

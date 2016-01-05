@@ -126,7 +126,7 @@ class ContactFormPlus(forms.Form):
                                                                       'ordered_data': ordered_dic_list,
                                                                       'instance': instance,
                                                                       }),
-            from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', None),
+            from_email=getattr(settings, 'CONTACT_PLUS_FROM_EMAIL', settings.DEFAULT_FROM_EMAIL),
             to=[recipient_email, ],
             headers=tmp_headers,
         )
