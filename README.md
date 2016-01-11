@@ -1,10 +1,10 @@
 # About cmsplugin_contact_plus
 
-[cmsplugin-contact-plus](https://github.com/arteria/cmsplugin-contact-plus/) lets you build forms for your Django CMS project 
-with exactly the fields you want in the order you want with a minimal effort. 
+[cmsplugin-contact-plus](https://github.com/arteria/cmsplugin-contact-plus/) lets you build forms for your Django CMS project
+with exactly the fields you want in the order you want with a minimal effort.
 
-Beside the regular input fields there are "auto" fields, for example to submit the referral page, or additional, hidden values. 
-The form will be submitted to an email address that is defined per form. This allows to cover a lot of use cases with a single and simple plugin. 
+Beside the regular input fields there are "auto" fields, for example to submit the referral page, or additional, hidden values.
+The form will be submitted to an email address that is defined per form. This allows to cover a lot of use cases with a single and simple plugin.
 
 cmsplugin-contact-plus is licensed under the MIT License.
 
@@ -15,13 +15,13 @@ cmsplugin-contact-plus is licensed under the MIT License.
 	```
 	pip install cmsplugin_contact_plus
 	```
-	
+
 	or to get the latest commit from GitHub,
-	 
+
 	```
 	pip install -e git+git://github.com/arteria/cmsplugin-contact-plus.git#egg=cmsplugin_contact_plus
 	```
-	
+
 
 2. Put ``cmsplugin_contact_plus`` in your INSTALLED_APPS `settings.py` section and verify that the [ADMINS](https://docs.djangoproject.com/en/dev/ref/settings/#admins) setting is set as well.
 
@@ -32,11 +32,19 @@ cmsplugin-contact-plus is licensed under the MIT License.
 
 ### ``DEFAULT_FROM_EMAIL``
 
-Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email) in your projects settings to send emails from a specific address. Otherwise Django's default  'webmaster@localhost' will be used. 
+Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settings/#default-from-email) in your projects settings to send emails from a specific address. Otherwise Django's default  'webmaster@localhost' will be used.
 
 ### ``CONTACT_PLUS_REPLY_EMAIL_LABEL``
 
 To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_REPLY_EMAIL_LABEL`` in your project settings. If the label is "your email" for example, then set ``CONTACT_PLUS_REPLY_EMAIL_LABEL='your-email'`` - basically it's the slugified field label that is used to look up the reply-to email address.
+
+### ``CMSPLUGIN_CONTACT_FORM_VALIDATORS``
+
+Specify ``CMSPLUGIN_CONTACT_FORM_VALIDATORS`` in your projects settings to one or more [validator functions](https://docs.djangoproject.com/en/dev/ref/validators/) that are used with the CharFieldWithValidator field. Expected is a list of strings, each string should point a validator function by its full path. For example:
+
+CMSPLUGIN_CONTACT_FORM_VALIDATORS = [
+  'myproject.utils.validators.phone_number_validator',
+]
 
 ### reCAPTCHA
 
@@ -50,7 +58,7 @@ If you are not using the default template settings of Django, make sure that  ``
 
 - Dynamic form creation
 - Migrations included
-- Store data in the database 
+- Store data in the database
 - Multiple languages: currently English and Spanish translations
 - reCAPTCHA and simple math captcha
 - django CMS 3.0 compatible
@@ -68,27 +76,27 @@ If you are not using the default template settings of Django, make sure that  ``
 ## TODO and planned features .
 - Widget support for each field.
 - Provide examples and real life case studies
-- Formatted email messages, HTML?, .as_p, ? 
+- Formatted email messages, HTML?, .as_p, ?
 - Allow to re-use forms on different pages.
 - Add optional Honeypot field support.
 - Support more Languages
 - (Your great feature here)
 
 ## Changelog
-### Development 
+### Development
 Please have a look at the latest commits for the work-in-progress development version.
 
 ### 1.1.25 - 10. 11. 2015
 
-- Handle multiple forms located on the same page. See the two relevant commits [7749d44](https://github.com/arteria/cmsplugin-contact-plus/commit/7749d44d39f1b106a1b4c980615fab7a6a810a37) and [b8793f7](https://github.com/arteria/cmsplugin-contact-plus/commit/b8793f7bc0ce573bbed1bb9ffa20f9b87191fa8b) for more info. Please modify your templates. 
+- Handle multiple forms located on the same page. See the two relevant commits [7749d44](https://github.com/arteria/cmsplugin-contact-plus/commit/7749d44d39f1b106a1b4c980615fab7a6a810a37) and [b8793f7](https://github.com/arteria/cmsplugin-contact-plus/commit/b8793f7bc0ce573bbed1bb9ffa20f9b87191fa8b) for more info. Please modify your templates.
 
-### 1.1.23 
+### 1.1.23
 
-- reCAPTCHA support 
+- reCAPTCHA support
 
 ### 1.1.14 - 20. 03. 2015
 
-- Multiple file and image fields / Upload files and images, upload will be placed directly into ``MEDIA_ROOT``. 
+- Multiple file and image fields / Upload files and images, upload will be placed directly into ``MEDIA_ROOT``.
 
 ### 1.1.13 - 17. 11. 2014
 
@@ -137,9 +145,9 @@ Please have a look at the latest commits for the work-in-progress development ve
 		# more templates here
     	]
 	```
-	
+
 	To be able to use the new features, please migrate manually
-	
+
 	``` ALTER TABLE `cmsplugin_contactplus` ADD `template` varchar(255) NOT NULL AFTER  `submit`; ```
 
 ### 1.1.4
@@ -168,18 +176,18 @@ label is 'Favorite Color', than the lookup in the URL is done based on 'favorite
 
 ### 1.0.3
 - Improved Documentation
-- Added ``auto_TextArea`` shortcut to create a TextArea. Note: Currently the widget defined in the plugins are ignored. 
+- Added ``auto_TextArea`` shortcut to create a TextArea. Note: Currently the widget defined in the plugins are ignored.
 - Hidden "referral page" field. Reads referral from request.
 - Generic Hidden fields. Use this in combination with JavaScript/jQuery to attach additional data to the form sent by email.
 
-For example, the field lable for the 'CharField as HiddenInput' is named to "Object description". 
+For example, the field lable for the 'CharField as HiddenInput' is named to "Object description".
 Using the lable name, the ID for the input field will be 'id_object-description', the name 'object-description'.
 
 Store data is dead easy using jQuery.
 
-	
+
 	$('#id_object-description').val('Hello Hidden World'); // The string 'Hello Hidden World' will be send by email as well.
-	
+
 
 
 ### 1.0.2
@@ -190,4 +198,4 @@ Fixed indentation /EOF in setup.py
 Fixed IndentationError in setup.py
 
 ### 1.0.0
-[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License. This plugin was built on a fork of [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact). Kudos! 
+[arteria](https://github.com/arteria/) open sourced cmsplugin_contact_plus unter the MIT License. This plugin was built on a fork of [cmsplugin_contact](https://github.com/rtpm/cmsplugin_contact). Kudos!
