@@ -10,7 +10,7 @@ from captcha.fields import ReCaptchaField
 from simplemathcaptcha.fields import MathCaptchaField
 from cmsplugin_contact_plus.models import ContactPlus, ContactRecord
 from cmsplugin_contact_plus.signals import contact_message_sent
-
+from cmsplugin_contact_plus.utils import get_validators
 
 class ContactFormPlus(forms.Form):
     required_css_class = getattr(settings, 'CONTACT_PLUS_REQUIRED_CSS_CLASS', 'required')
@@ -91,6 +91,13 @@ class ContactFormPlus(forms.Form):
                             initial=lInitial,  # NOTE: This overwrites extraField.initial!
                             widget=forms.HiddenInput,
                             required=False)
+                elif extraField.fieldType == 'CharFieldWithValidator':
+                    self.fields[slugify(extraField.label)] = forms.CharField(
+                        label=extraField.label,
+                        initial=extraField.initial,
+                        required=extraField.required,
+                        validators=get_validators())
+
 
     def send(self, recipient_email, request, ts, instance=None, multipart=False):
         current_site = Site.objects.get_current()
