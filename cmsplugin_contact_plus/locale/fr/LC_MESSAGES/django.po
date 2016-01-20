@@ -1,0 +1,128 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Luis Zárate <luisza14@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-14 17:02+0000\n"
+"PO-Revision-Date: 2016-01-20 19:27+0100\n"
+"Last-Translator: Olivier Tabone <olivier.tabone@ripplemotion.fr>\n"
+"Language-Team: FR <>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#: cmsplugin_contact_plus/cms_plugins.py:14 cmsplugin_contact_plus/models.py:83
+#: cmsplugin_contact_plus/models.py:100
+msgid "Contact Form"
+msgstr "Formulaire de contact"
+
+#: cmsplugin_contact_plus/forms.py:58 cmsplugin_contact_plus/forms.py:60
+msgid "No referral available."
+msgstr "No referral available."
+
+#: cmsplugin_contact_plus/forms.py:71
+msgid "Key/value parameter not available."
+msgstr "Paramètre clé/valeur non disponible."
+
+#: cmsplugin_contact_plus/models.py:31
+msgid "Contact form message from {}"
+msgstr "Message via le formulaire de contact de {}"
+
+#: cmsplugin_contact_plus/models.py:34
+msgid "Title"
+msgstr "Titre"
+
+#: cmsplugin_contact_plus/models.py:34
+msgid "Title for the Contact Form."
+msgstr "Titre du formulaire de contact"
+
+#: cmsplugin_contact_plus/models.py:36
+msgid "Email subject"
+msgstr "Sujet email"
+
+#: cmsplugin_contact_plus/models.py:39
+msgid "Email of recipients"
+msgstr "Addresses email des destinataires"
+
+#: cmsplugin_contact_plus/models.py:41
+msgid "Collect Records"
+msgstr "Enregistrer les envois"
+
+#: cmsplugin_contact_plus/models.py:41
+msgid "If active, all records for this Form will be stored in the Database."
+msgstr ""
+"Si configuré, toutes les entrées du formulaire seront sauvegardée dans la "
+"base de données."
+
+#: cmsplugin_contact_plus/models.py:43
+msgid "Message displayed after submitting the contact form."
+msgstr "Message affiché après la validation du formulaire de contact."
+
+#: cmsplugin_contact_plus/models.py:45
+msgid "Text for the Submit button."
+msgstr "Texte du bouton « soumettre »."
+
+#: cmsplugin_contact_plus/models.py:65
+#, python-format
+msgid "Contact Plus Form for %s"
+msgstr "Contact Plus Form pour %s"
+
+#: cmsplugin_contact_plus/models.py:75
+msgid "CharField as Textarea"
+msgstr "CharField comme Textarea"
+
+#: cmsplugin_contact_plus/models.py:76
+msgid "CharField as HiddenInput"
+msgstr "CharField comme Textarea"
+
+#: cmsplugin_contact_plus/models.py:77
+msgid "Referral page as HiddenInput"
+msgstr "Page référente comme HiddenInput"
+
+#: cmsplugin_contact_plus/models.py:78
+msgid "GET parameter as HiddenInput"
+msgstr "Paramètres GET comme HiddenInput"
+
+#: cmsplugin_contact_plus/models.py:84
+msgid "Label"
+msgstr "Etiquette"
+
+#: cmsplugin_contact_plus/models.py:87
+msgid "Inital Value"
+msgstr "Valeur initiale"
+
+#: cmsplugin_contact_plus/models.py:89
+msgid "Mandatory field"
+msgstr "Champs obligatoires"
+
+#: cmsplugin_contact_plus/models.py:91
+msgid "Widget"
+msgstr "Widget"
+
+#: cmsplugin_contact_plus/models.py:92
+msgid "Will be ignored in the current version."
+msgstr "Ignoré dans la version actuelle"
+
+#: cmsplugin_contact_plus/models.py:102
+msgid "Date the Record was processed."
+msgstr "Date de la saisie du formulaire."
+
+#: cmsplugin_contact_plus/models.py:107
+msgid "Contact Record"
+msgstr "Demande de contact"
+
+#: cmsplugin_contact_plus/models.py:108
+msgid "Contact Records"
+msgstr "Demandes de contact"
+
+#: cmsplugin_contact_plus/models.py:118
+#, python-format
+msgid "Record for %(contact)s recorded on %(date)s"
+msgstr "Demande pour %(contact)s saisie le %(date)s"
