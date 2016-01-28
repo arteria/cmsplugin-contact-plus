@@ -92,17 +92,17 @@ If you are not using the default template settings of Django, make sure that  ``
 Please have a look at the latest commits for the work-in-progress development version.
 * Added a CharFieldWithValidator field that supports validators
 
-## 1.2.5 - 05. 01. 2015
+## 1.2.6 - 05. 01. 2015
 
 - Use email subject defined in plugin settings
 - Set `required_css_class` of contact form
 - Use more specific setting `CONTACT_PLUS_FROM_EMAIL`, and use `DEFAULT_FROM_EMAIL` as a fallback
 
-### 1.2.4 - 10. 11. 2015
+### 1.2.5 - 10. 11. 2015
 
 - Handle multiple forms located on the same page. See the two relevant commits [7749d44](https://github.com/arteria/cmsplugin-contact-plus/commit/7749d44d39f1b106a1b4c980615fab7a6a810a37) and [b8793f7](https://github.com/arteria/cmsplugin-contact-plus/commit/b8793f7bc0ce573bbed1bb9ffa20f9b87191fa8b) for more info. Please modify your templates.
 
-### 1.1.23
+### 1.2.3
 
 - reCAPTCHA support
 
