@@ -118,7 +118,7 @@ class ContactFormPlus(forms.Form):
                         value = "http://%s%s%s" % (current_site, settings.MEDIA_URL, val)
                 ordered_dic_list.append({field.label: value})
 
-        # Automatically match reply-to email adress in form
+        # Automatically match reply-to email address in form
         tmp_headers = {}
         try:
             reply_email_label = getattr(settings, 'CONTACT_PLUS_REPLY_EMAIL_LABEL', None)
