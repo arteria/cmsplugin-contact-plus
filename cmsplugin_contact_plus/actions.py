@@ -1,8 +1,9 @@
 import csv 
-from django.http import HttpResponse
-from setuptools.compat import unicode
+from six import text_type
 
- 
+from django.http import HttpResponse
+
+
 class LUT(object):
         
     def __init__(self):
@@ -47,7 +48,7 @@ def export_as_csv_action(description="Export selected objects as CSV file",
             field_names = field_names - excludeset
 
         response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename=%s.csv' % unicode(opts).replace('.', '_')
+        response['Content-Disposition'] = 'attachment; filename=%s.csv' % text_type(opts).replace('.', '_')
         
         writer = csv.writer(response)
         """
@@ -58,9 +59,9 @@ def export_as_csv_action(description="Export selected objects as CSV file",
             for obj in queryset:
                 row = []
                 for field in field_names:
-                    row.append(unicode(getattr(obj, field)))
+                    row.append(text_type(getattr(obj, field)))
                 for field in many_to_many_field_names:
-                    row.append(unicode(getattr(obj, field).all()))
+                    row.append(text_type(getattr(obj, field).all()))
                 writer.writerow(row)
         else:
         """
@@ -93,9 +94,9 @@ def export_as_csv_action(description="Export selected objects as CSV file",
                             except AttributeError:
                                 pass
                 else:
-                    row[lut.get_idx(field)] = unicode(getattr(obj, field))
+                    row[lut.get_idx(field)] = text_type(getattr(obj, field))
             for field in many_to_many_field_names:
-                row[lut.get_idx(field)] = unicode(getattr(obj, field).all())
+                row[lut.get_idx(field)] = text_type(getattr(obj, field).all())
             writer.writerow(row)
             
             
