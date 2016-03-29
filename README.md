@@ -90,10 +90,15 @@ If you are not using the default template settings of Django, make sure that  ``
 ### Development
 
 Please have a look at the latest commits for the work-in-progress development version.
-* Added a CharFieldWithValidator field that supports validators
+
+## 1.2.7 - 29. 03. 2016
+
+- French translation
+- Fix setuptools compatibility issue
 
 ## 1.2.6 - 05. 01. 2015
 
+- Added a CharFieldWithValidator field that supports validators
 - Use email subject defined in plugin settings
 - Set `required_css_class` of contact form
 - Use more specific setting `CONTACT_PLUS_FROM_EMAIL`, and use `DEFAULT_FROM_EMAIL` as a fallback
