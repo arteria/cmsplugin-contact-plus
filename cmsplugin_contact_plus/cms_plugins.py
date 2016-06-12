@@ -31,7 +31,7 @@ class CMSContactPlusPlugin(CMSPluginBase):
 
     def get_form_class(self):
         try:
-            form_path = settings.CMS_CONTACT_PLUS_FORM
+            form_path = settings.CMSPLUGIN_CONTACT_FORMCLASS
         except AttributeError:
             return ContactFormPlus
         else:
