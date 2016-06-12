@@ -45,8 +45,8 @@ class CMSContactPlusPlugin(CMSPluginBase):
         if instance and instance.template:
             self.render_template = instance.template
 
+        FormClass = self.get_form_class()
         if request.method == "POST" and "contact_plus_form_" + str(instance.id) in request.POST.keys():
-            FormClass = self.get_form_class()
             form = FormClass(contactFormInstance=instance,
                     request=request, 
                     data=request.POST, 
@@ -70,7 +70,7 @@ class CMSContactPlusPlugin(CMSPluginBase):
                 })
 
         else:
-            form = ContactFormPlus(contactFormInstance=instance, request=request)
+            form = FormClass(contactFormInstance=instance, request=request)
             context.update({
                     'contact': instance,
                     'form': form,
