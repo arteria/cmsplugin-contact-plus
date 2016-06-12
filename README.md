@@ -50,6 +50,12 @@ CMSPLUGIN_CONTACT_FORM_VALIDATORS = [
   'myproject.utils.validators.phone_number_validator',
 ]
 
+### ``CMSPLUGIN_CONTACT_FORMCLASS``
+
+To customize the form class, specify ``CMSPLUGIN_CONTACT_FORM_FORMCLASS`` in your projects settings.
+Its value should be a string with the python path to a subclass of ``cmsplugin_contact_plus.forms.ContactFormPlus``
+where you can extends the base behaviour.
+
 ### reCAPTCHA
 
 To make the reCAPTCHA field type available to your users, add `'captcha'` to your `INSTALLED_APPS` and define your `RECAPTCHA_PUBLIC_KEY` and `RECAPTCHA_PRIVATE_KEY` as described in [django-recaptcha's README](https://github.com/praekelt/django-recaptcha/blob/develop/README.rst). A single reCAPTCHA instance per page is supported.

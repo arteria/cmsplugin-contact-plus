@@ -1,3 +1,5 @@
+import importlib
+
 from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 from cms.plugin_base import CMSPluginBase
@@ -27,6 +29,16 @@ class CMSContactPlusPlugin(CMSPluginBase):
     render_template = "cmsplugin_contact_plus/contact.html"
     cache = False
 
+    def get_form_class(self):
+        try:
+            form_path = settings.CMS_CONTACT_PLUS_FORM
+        except AttributeError:
+            return ContactFormPlus
+        else:
+            module_name, class_name = form_path.rsplit(".", 1)
+            module = importlib.import_module(module_name)
+            return getattr(module, class_name)
+
     def render(self, context, instance, placeholder):
         request = context['request']
 
@@ -34,7 +46,8 @@ class CMSContactPlusPlugin(CMSPluginBase):
             self.render_template = instance.template
 
         if request.method == "POST" and "contact_plus_form_" + str(instance.id) in request.POST.keys():
-            form = ContactFormPlus(contactFormInstance=instance, 
+            FormClass = self.get_form_class()
+            form = FormClass(contactFormInstance=instance,
                     request=request, 
                     data=request.POST, 
                     files=request.FILES)
