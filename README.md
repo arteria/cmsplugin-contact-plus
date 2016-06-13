@@ -76,6 +76,7 @@ If you are not using the default template settings of Django, make sure that  ``
 
 - Migrations are available with django-cms >= 3.0.6 because we depend on [this](https://github.com/divio/django-cms/blob/3.0.6/cms/migrations_django/0003_auto_20140926_2347.py) migrations file.
 - Collecting data is not available if ``from.is_multipart is True`` (= the form has attached files)
+- If you render a form field manually, make sure that its name is: `name="{{ field.label|slugify }}"`. This is necessary for the proper validation of the form.
 
 ## TODO and planned features .
 - Widget support for each field.
