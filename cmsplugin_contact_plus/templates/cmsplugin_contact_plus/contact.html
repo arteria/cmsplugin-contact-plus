@@ -8,7 +8,7 @@
     {% endif %}
 	{% csrf_token %}
 		{{ form.as_p }}
-		<input type="submit" name="contact_plus_form_{{ contact.id|unlocalize }}" {% if contact.submit %} value="{{ contact.submit }}"{% endif %} />
+		<input type="submit" name="contact_plus_form_{{ contact.id|unlocalize }}" {% if contact.submit_button_text %} value="{{ contact.submit_button_text }}"{% endif %} />
 	</form>
 {% else %}
 	{{ contact.thanks|safe }}

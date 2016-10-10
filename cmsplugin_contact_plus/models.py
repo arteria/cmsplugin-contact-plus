@@ -47,7 +47,7 @@ class ContactPlus(CMSPlugin):
             default=True, 
             help_text=_("If active, all records for this Form will be stored in the Database."))
     thanks = models.TextField(_('Message displayed after submitting the contact form.'))
-    submit = models.CharField(_('Text for the Submit button.'), 
+    submit_button_text = models.CharField(_('Text for the Submit button.'),
             blank=True, 
             max_length=30)
     template = models.CharField(
