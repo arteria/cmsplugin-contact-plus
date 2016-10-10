@@ -92,12 +92,15 @@ If you are not using the default template settings of Django, make sure that  ``
 
 Please have a look at the latest commits for the work-in-progress development version.
 
-## 1.2.7 - 29. 03. 2016
+### 1.3.0 - 10. 10. 2016
+- Renamed plugin field `submit` to `submit_button_text` to achieve django CMS 3.3/3.4 compatibility. Please migrate your database and update your templates.
+
+### 1.2.7 - 29. 03. 2016
 
 - French translation
 - Fix setuptools compatibility issue
 
-## 1.2.6 - 05. 01. 2015
+### 1.2.6 - 05. 01. 2015
 
 - Added a CharFieldWithValidator field that supports validators
 - Use email subject defined in plugin settings
