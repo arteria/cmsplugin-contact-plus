@@ -16,6 +16,6 @@ def warn_1_3_changes(app_configs, **kwargs):
 
 def register_checks():
     for check in [
-        warn_1_3_changes,
+        # warn_1_3_changes,  # Might be more annoying than useful
     ]:
         register(check)
