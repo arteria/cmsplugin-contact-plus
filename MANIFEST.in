@@ -2,6 +2,6 @@ include LICENSE
 include README.md
 include AUTHORS.txt
 include requirements.txt
-recursive-include cmsplugin_contact_plus/templates *
-recursive-include cmsplugin_contact_plus/locales *
+graft cmsplugin_contact_plus/templates
+graft cmsplugin_contact_plus/locale
 global-exclude *.orig *.pyc *.log *.swp
