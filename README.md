@@ -50,6 +50,35 @@ CMSPLUGIN_CONTACT_FORM_VALIDATORS = [
   'myproject.utils.validators.phone_number_validator',
 ]
 
+###  ``CONTACT_PLUS_SEND_METHOD``
+
+Specify ``CONTACT_PLUS_SEND_METHOD`` in your settings to specify how email is send.  
+the default value is  `cmsplugin_contact_plus.email_manager.default_send_email`
+
+For example if you don't want to send an email, just save records use 
+
+``
+CONTACT_PLUS_SEND_METHOD='cmsplugin_contact_plus.email_manager.none_send_email' 
+``
+
+you can specify your own email sender 
+
+```
+def mysender(**kwargs):
+    send_email()
+    
+```
+
+Available  kwargs arguments
+
+- `from_email`: From email
+- `context`':  {data: form data, ordered_data: form data in order, instance: form plugin}
+- `subject`: Email subject
+- `instance`: form plugin instance"
+- `headers`: Http headers (don't use)
+- `to`:  TO email list
+
+
 ### reCAPTCHA
 
 To make the reCAPTCHA field type available to your users, add `'captcha'` to your `INSTALLED_APPS` and define your `RECAPTCHA_PUBLIC_KEY` and `RECAPTCHA_PRIVATE_KEY` as described in [django-recaptcha's README](https://github.com/praekelt/django-recaptcha/blob/develop/README.rst). A single reCAPTCHA instance per page is supported.
