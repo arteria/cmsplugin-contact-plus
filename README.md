@@ -38,6 +38,10 @@ Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settin
 
 To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_REPLY_EMAIL_LABEL`` in your project settings. If the label is "your email" for example, then set ``CONTACT_PLUS_REPLY_EMAIL_LABEL='your-email'`` - basically it's the slugified field label that is used to look up the reply-to email address.
 
+### ``CONTACT_PLUS_SEND_COPY_TO_REPLY_EMAIL``
+
+To send a carbon copy to the submitter you can set the ``CONTACT_PLUS_SEND_COPY_TO_REPLY_EMAIL`` to `True`. If a Field with the label `email` exists this email will be used as Cc Header.
+
 ### ``CONTACT_PLUS_REQUIRED_CSS_CLASS``
 
 Defines the required CSS class, default is `required`.

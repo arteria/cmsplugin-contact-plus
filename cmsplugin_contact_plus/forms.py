@@ -127,6 +127,14 @@ class ContactFormPlus(forms.Form):
         except:
             pass
 
+        try:
+            cc_adress = self.cleaned_data.get('email', None)
+            send_copy = getattr(settings, 'CONTACT_PLUS_SEND_COPY_TO_REPLY_EMAIL', False)
+            if cc_adress and send_copy:
+                tmp_headers.update({'Cc': cc_adress})
+        except:
+            pass
+
         email_message = EmailMessage(
             subject=instance.email_subject,
             body=render_to_string("cmsplugin_contact_plus/email.txt", {'data': self.cleaned_data,
