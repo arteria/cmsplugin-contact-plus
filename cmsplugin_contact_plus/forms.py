@@ -120,6 +120,7 @@ class ContactFormPlus(forms.Form):
 
         # Automatically match reply-to email address in form
         tmp_headers = {}
+        cc_list = []
         try:
             reply_email_label = getattr(settings, 'CONTACT_PLUS_REPLY_EMAIL_LABEL', None)
             if reply_email_label is not None:
@@ -128,10 +129,11 @@ class ContactFormPlus(forms.Form):
             pass
 
         try:
-            cc_adress = self.cleaned_data.get('email', None)
+            cc_address_label = getattr(settings, 'CONTACT_PLUS_REPLY_EMAIL_LABEL', None)
+            cc_address = self.cleaned_data.get(cc_address_label, None)
             send_copy = getattr(settings, 'CONTACT_PLUS_SEND_COPY_TO_REPLY_EMAIL', False)
-            if cc_adress and send_copy:
-                tmp_headers.update({'Cc': cc_adress})
+            if cc_address and send_copy:
+                cc_list.append(cc_address)
         except:
             pass
 
@@ -141,6 +143,7 @@ class ContactFormPlus(forms.Form):
                                                                       'ordered_data': ordered_dic_list,
                                                                       'instance': instance,
                                                                       }),
+            cc=cc_list,
             from_email=getattr(settings, 'CONTACT_PLUS_FROM_EMAIL', settings.DEFAULT_FROM_EMAIL),
             to=[recipient_email, ],
             headers=tmp_headers,
