@@ -138,6 +138,6 @@ class ContactRecord(Model):
             return False
 
     def __str__(self):
-        return _("Record for %(contact)s recorded on %(date)s") % {'contact':self.contact_form, 
+        return _(u"Record for %(contact)s recorded on %(date)s") % {'contact':self.contact_form, 
                                                                    'date': self.date_of_entry.strftime('%d. %b %Y') }
  
