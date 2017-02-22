@@ -1,16 +1,17 @@
 from django.contrib import admin
 from django.http import HttpResponse
 
-from inline_ordering.admin import OrderableStackedInline
+from adminsortable.admin import SortableTabularInline, NonSortableParentAdmin
 from cmsplugin_contact_plus.models import ExtraField, ContactPlus, ContactRecord
 
 from .actions import export_as_csv_action
 
-class ExtraFieldInline(OrderableStackedInline):
+class ExtraFieldInline(SortableTabularInline):
     model = ExtraField
+    fields = ('label', 'fieldType', 'initial', 'required')
 
 
-class ContactFormPlusAdmin(admin.ModelAdmin):
+class ContactFormPlusAdmin(NonSortableParentAdmin):
     model = ContactPlus
     inlines = (ExtraFieldInline, )
 

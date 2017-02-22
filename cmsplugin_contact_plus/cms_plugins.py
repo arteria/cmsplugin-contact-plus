@@ -25,6 +25,7 @@ class CMSContactPlusPlugin(CMSPluginBase):
     inlines = [ExtraFieldInline, ]
     name = _('Contact Form')
     render_template = "cmsplugin_contact_plus/contact.html"
+    change_form_template = 'cmsplugin_contact_plus/change_form.html'
     cache = False
 
     def render(self, context, instance, placeholder):

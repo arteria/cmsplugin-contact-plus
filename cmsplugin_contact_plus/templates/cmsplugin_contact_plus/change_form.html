@@ -1,0 +1,11 @@
+{% extends "admin/cms/page/plugin/change_form.html" %}
+{% load static from staticfiles %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'adminsortable/js/jquery-ui-django-admin.min.js' %}"></script>
+    {% include 'adminsortable/csrf/jquery.django-csrf.html' with csrf_cookie_name='csrftoken' %}
+    <script src="{% static 'adminsortable/js/admin.sortable.tabular.inlines.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'adminsortable/css/admin.sortable.inline.css' %}" />
+{% endblock extrahead %}

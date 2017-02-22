@@ -8,7 +8,7 @@ from django.utils.encoding import python_2_unicode_compatible
 from django.db.models import Model
 
 from cms.models import CMSPlugin
-from inline_ordering.models import Orderable
+from adminsortable.models import SortableMixin
 from jsonfield import JSONField
 
 try:
@@ -98,7 +98,7 @@ if recaptcha_installed():
 
 
 @python_2_unicode_compatible
-class ExtraField(Orderable):
+class ExtraField(SortableMixin):
     """
     """
     form = models.ForeignKey(ContactPlus, verbose_name=_("Contact Form"))
@@ -112,8 +112,13 @@ class ExtraField(Orderable):
         _('Widget'), max_length=250, blank=True, null=True,
         help_text=_("Will be ignored in the current version."))
 
+    inline_ordering_position = models.IntegerField(blank=True, null=True, editable=True)
+
     def __str__(self):
         return self.label
+
+    class Meta:
+        ordering = ('inline_ordering_position',)
 
 
 @python_2_unicode_compatible
