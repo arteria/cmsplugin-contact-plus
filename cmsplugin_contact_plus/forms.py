@@ -6,7 +6,13 @@ from django.template.defaultfilters import slugify
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
-from captcha.fields import ReCaptchaField
+try:
+    from snowpenguin.django.recaptcha2.widgets import ReCaptchaWidget
+    from snowpenguin.django.recaptcha2.fields import ReCaptchaField
+except:
+    from captcha.fields import ReCaptchaField
+    from captcha.widgets import ReCaptcha as ReCaptchaWidget
+
 from simplemathcaptcha.fields import MathCaptchaField
 from cmsplugin_contact_plus.models import ContactPlus, ContactRecord
 from cmsplugin_contact_plus.signals import contact_message_sent
@@ -80,6 +86,7 @@ class ContactFormPlus(forms.Form):
                                                 required=True)
                 elif extraField.fieldType == 'ReCaptcha':
                     self.fields[slugify(extraField.label)] = ReCaptchaField(
+                                                widget=ReCaptchaWidget,
                                                 label=extraField.label,
                                                 initial=extraField.initial,
                                                 required=True)

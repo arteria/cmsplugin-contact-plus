@@ -42,7 +42,10 @@ def autodiscover_templates():
     if 'django.template.loaders.app_directories.Loader' in settings.TEMPLATE_LOADERS:
         for app in settings.INSTALLED_APPS:
             _ = __import__(app)
-            dir = os.path.dirname(_.__file__)
+            try:
+                dir = os.path.dirname(_.__file__)
+            except AttributeError:
+                continue
             if not dir in dirs_to_scan:
                 # append 'templates' for app directories
                 dirs_to_scan.append(os.path.join(dir, 'templates'))
