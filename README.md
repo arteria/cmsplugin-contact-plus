@@ -96,14 +96,14 @@ If you are not using the default template settings of Django, make sure that  ``
 
 Please have a look at the latest commits for the work-in-progress development version.
 
-### 1.3.5 - 10. 10. 2016
+### 1.3.5 - 22. 02. 2017
 - Replaced https://github.com/centralniak/django-inline-ordering dependency with https://github.com/iambrandontaylor/django-admin-sortable.
   Upgrading: Remove `'inline_ordering'` from `INSTALLED_APPS `and add `'adminsortable'` instead.
   
-### 1.3.2 - 10. 10. 2016
+### 1.3.2 - 07. 12. 2016
 - Fixed `MANIFEST.in`. Locale files are now correctly included
 
-### 1.3.1 - 10. 10. 2016
+### 1.3.1 - 07. 11. 2016
 - Added a missing migration
 
 ### 1.3.0 - 10. 10. 2016
