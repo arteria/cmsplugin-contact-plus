@@ -11,17 +11,12 @@ from cms.models import CMSPlugin
 from adminsortable.models import SortableMixin
 from jsonfield import JSONField
 
+from cmsplugin_contact_plus import local_settings
+
 try:
     DEFAULT_FROM_EMAIL_ADDRESS = settings.ADMINS[0][1]
 except:
     DEFAULT_FROM_EMAIL_ADDRESS = ''
-
-from cmsplugin_contact_plus import utils
-
-
-localdata = threading.local()
-localdata.TEMPLATE_CHOICES = utils.autodiscover_templates()
-TEMPLATE_CHOICES = localdata.TEMPLATE_CHOICES
 
 def get_current_site():
     try:
@@ -52,9 +47,9 @@ class ContactPlus(CMSPlugin):
             max_length=30)
     template = models.CharField(
             max_length=255,
-            choices=TEMPLATE_CHOICES,
+            choices=local_settings.CMSPLUGIN_CONTACT_PLUS_TEMPLATES,
             default='cmsplugin_contact_plus/contact.html',
-            editable=len(TEMPLATE_CHOICES) > 1)
+            editable=len(local_settings.CMSPLUGIN_CONTACT_PLUS_TEMPLATES) > 1)
             
     class Meta:
         verbose_name = "Contact Plus Form"

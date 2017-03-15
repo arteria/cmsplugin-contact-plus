@@ -46,13 +46,28 @@ To send a carbon copy to the submitter you can set the ``CONTACT_PLUS_SEND_COPY_
 
 Defines the required CSS class, default is `required`.
 
+### ``CMSPLUGIN_CONTACT_PLUS_TEMPLATES``
+
+To allow users to choose between multiple contact form templates, specify the template choices in your project settings like this:
+
+```python
+CMSPLUGIN_CONTACT_PLUS_TEMPLATES = [
+    ('cmsplugin_contact_plus/contact.html', 'Contact Form'),
+    ('cmsplugin_contact_plus/contact_newsletter.html', 'Newsletter Form'),
+]
+```
+
+Make sure that the templates can be loaded by Django.
+
 ### ``CMSPLUGIN_CONTACT_FORM_VALIDATORS``
 
 Specify ``CMSPLUGIN_CONTACT_FORM_VALIDATORS`` in your projects settings to one or more [validator functions](https://docs.djangoproject.com/en/dev/ref/validators/) that are used with the CharFieldWithValidator field. Expected is a list of strings, each string should point a validator function by its full path. For example:
 
+```python
 CMSPLUGIN_CONTACT_FORM_VALIDATORS = [
   'myproject.utils.validators.phone_number_validator',
 ]
+```
 
 ### reCAPTCHA
 
