@@ -1,3 +1,4 @@
+from django.utils.http import urlquote
 from django import forms
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
@@ -115,7 +116,7 @@ class ContactFormPlus(forms.Form):
                     if settings.MEDIA_URL.startswith("http"):
                         value = "%s%s" % (settings.MEDIA_URL, val)
                     else:
-                        value = "http://%s%s%s" % (current_site, settings.MEDIA_URL, val)
+                        value = "http://%s%s%s" % (current_site, settings.MEDIA_URL, urlquote(val))
                 ordered_dic_list.append({field.label: value})
 
         # Automatically match reply-to email address in form
