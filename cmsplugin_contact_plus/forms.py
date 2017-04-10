@@ -23,6 +23,9 @@ class ContactFormPlus(forms.Form):
                 if extraField.fieldType == 'CharField':
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label,
                             initial=extraField.initial,
+                            widget=forms.TextInput(
+                                attrs={'placeholder': extraField.initial}
+                            ),
                             required=extraField.required)
                 elif extraField.fieldType == 'BooleanField':
                     self.fields[slugify(extraField.label)] = forms.BooleanField(label=extraField.label,
@@ -31,14 +34,23 @@ class ContactFormPlus(forms.Form):
                 elif extraField.fieldType == 'EmailField':
                     self.fields[slugify(extraField.label)] = forms.EmailField(label=extraField.label,
                             initial=extraField.initial,
+                            widget=forms.TextInput(
+                                attrs={'placeholder': extraField.initial}
+                            ),
                             required=extraField.required)
                 elif extraField.fieldType == 'DecimalField':
                     self.fields[slugify(extraField.label)] = forms.DecimalField(label=extraField.label,
                             initial=extraField.initial,
+                            widget=forms.TextInput(
+                                attrs={'placeholder': extraField.initial}
+                            ),
                             required=extraField.required)
                 elif extraField.fieldType == 'FloatField':
                     self.fields[slugify(extraField.label)] = forms.FloatField(label=extraField.label,
                             initial=extraField.initial,
+                            widget=forms.TextInput(
+                                attrs={'placeholder': extraField.initial}
+                            ),
                             required=extraField.required)
                 elif extraField.fieldType == 'FileField': 
                     self.fields[slugify(extraField.label)] = forms.FileField(label=extraField.label,
@@ -51,15 +63,23 @@ class ContactFormPlus(forms.Form):
                 elif extraField.fieldType == 'IntegerField':
                     self.fields[slugify(extraField.label)] = forms.IntegerField(label=extraField.label,
                             initial=extraField.initial,
+                            widget=forms.TextInput(
+                                attrs={'placeholder': extraField.initial}
+                            ),
                             required=extraField.required)
                 elif extraField.fieldType == 'IPAddressField':
                     self.fields[slugify(extraField.label)] = forms.IPAddressField(label=extraField.label,
                             initial=extraField.initial,
+                            widget=forms.TextInput(
+                                attrs={'placeholder': extraField.initial}
+                            ),
                             required=extraField.required)
                 elif extraField.fieldType == 'auto_Textarea':
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label,
                             initial=extraField.initial,
-                            widget=forms.Textarea,
+                            widget=forms.Textarea(
+                                attrs={'placeholder': extraField.initial}
+                            ),
                             required=extraField.required)
                 elif extraField.fieldType == 'auto_hidden_input':
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label,
