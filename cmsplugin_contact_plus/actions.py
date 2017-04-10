@@ -90,7 +90,7 @@ def export_as_csv_action(description="Export selected objects as CSV file",
                     for l in j:
                         for k, v in l.iteritems(): 
                             try:
-                                row[lut.get_idx(k)] = v.encode('utf-8')
+                                row[lut.get_idx(k)] = text_type(v)
                             except AttributeError:
                                 pass
                 else:
