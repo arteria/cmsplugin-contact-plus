@@ -1,4 +1,5 @@
 import csv 
+import six
 from six import text_type
 
 from django.http import HttpResponse
@@ -90,7 +91,10 @@ def export_as_csv_action(description="Export selected objects as CSV file",
                     for l in j:
                         for k, v in l.iteritems(): 
                             try:
-                                row[lut.get_idx(k)] = text_type(v)
+                                s = text_type(v)
+                                if six.PY2:
+                                    s = s.encode('utf-8')
+                                row[lut.get_idx(k)] = s
                             except AttributeError:
                                 pass
                 else:
