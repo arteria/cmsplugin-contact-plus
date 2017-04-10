@@ -99,6 +99,9 @@ class ExtraField(SortableMixin):
     fieldType = models.CharField(max_length=100, choices=FIELD_TYPE)
     initial = models.CharField(
         _('Inital Value'), max_length=250, blank=True, null=True)
+    placeholder = models.CharField(
+        _('Placeholder Value'), max_length=250, blank=True, null=True)
+    )
     required = models.BooleanField(
         _('Mandatory field'), default=True)
     widget = models.CharField(
