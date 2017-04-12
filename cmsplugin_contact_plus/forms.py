@@ -52,6 +52,14 @@ class ContactFormPlus(forms.Form):
                     self.fields[slugify(extraField.label)] = forms.IntegerField(label=extraField.label,
                             initial=extraField.initial,
                             required=extraField.required)
+                elif extraField.fieldType == 'DateField':
+                    self.fields[slugify(extraField.label)] = forms.DateField(label=extraField.label,
+                            initial=extraField.initial,
+                            required=extraField.required)
+                elif extraField.fieldType == 'DateTimeField':
+                    self.fields[slugify(extraField.label)] = forms.DateTimeField(label=extraField.label,
+                            initial=extraField.initial,
+                            required=extraField.required)
                 elif extraField.fieldType == 'IPAddressField':
                     self.fields[slugify(extraField.label)] = forms.IPAddressField(label=extraField.label,
                             initial=extraField.initial,
