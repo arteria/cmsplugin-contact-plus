@@ -6,6 +6,8 @@ with exactly the fields you want in the order you want with a minimal effort.
 Beside the regular input fields there are "auto" fields, for example to submit the referral page, or additional, hidden values.
 The form will be submitted to an email address that is defined per form. This allows to cover a lot of use cases with a single and simple plugin.
 
+From v1.3.5, the plugin is compatible with Django >= 1.5
+
 cmsplugin-contact-plus is licensed under the MIT License.
 
 ## Quickstart
@@ -111,9 +113,31 @@ If you are not using the default template settings of Django, make sure that  ``
 
 Please have a look at the latest commits for the work-in-progress development version.
 
+### 1.3.11 - 27. 04. 2017
+- Add input placeholders
+
+### 1.3.10 - 12. 04. 2017
+- Add DateField and DateTimeField
+
+### 1.3.9 - 10. 04. 2017
+- CSV export: Restore python 2 compatibility
+
+### 1.3.8 - 10. 04. 2017
+- CSV export: Properly serialize boolean fields
+
+### 1.3.7 - 22. 03. 2017
+- Correctly quote media urls in e-mails and contact records
+
+### 1.3.6 - 21. 03. 2017
+- Remove undocumented template auto-discovery functionality
+  
+  **Upgrading**: If you have relied on Contact Plus to automagically discover multiple form template choices, make sure the choices are now listed explicitly in your settings as described here: https://github.com/arteria/cmsplugin-contact-plus#cmsplugin_contact_plus_templates
+
 ### 1.3.5 - 22. 02. 2017
-- Replaced https://github.com/centralniak/django-inline-ordering dependency with https://github.com/iambrandontaylor/django-admin-sortable.
-  Upgrading: Remove `'inline_ordering'` from `INSTALLED_APPS `and add `'adminsortable'` instead.
+- Drop Django 1.4 support
+- Replace https://github.com/centralniak/django-inline-ordering dependency with https://github.com/iambrandontaylor/django-admin-sortable.
+  
+  **Upgrading**: Remove `'inline_ordering'` from `INSTALLED_APPS`and add `'adminsortable'` instead. To ensure the compatibility of the new dependency with your project's Django version, have a look at the "Supported Django Versions", "Installation", and "Configuration" sections of the [README](https://github.com/iambrandontaylor/django-admin-sortable/blob/master/README.md).
   
 ### 1.3.2 - 07. 12. 2016
 - Fixed `MANIFEST.in`. Locale files are now correctly included
