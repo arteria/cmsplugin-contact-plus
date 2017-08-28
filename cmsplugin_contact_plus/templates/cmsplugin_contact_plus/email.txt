@@ -3,3 +3,4 @@ New message from the Web
 {% for dic in ordered_data %}{% for key, value in dic.items %}
       {{ key }}:  {% if value|length %}{{ value|safe }}{% else %}{{ value|yesno:"Ja,Nein,Leer" }}{% endif %}
 {% endfor %}{% endfor %}
+
