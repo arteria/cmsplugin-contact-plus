@@ -35,7 +35,7 @@ class ContactFormPlus(forms.Form):
                     self.fields[slugify(extraField.label)] = forms.EmailField(label=extraField.label,
                             initial=extraField.initial,
                             widget=forms.TextInput(
-                                attrs={'placeholder': extraField.placeholder}
+                                attrs={'placeholder': extraField.placeholder, 'class': extraField.css_classes}
                             ),
                             required=extraField.required)
                 elif extraField.fieldType == 'DecimalField':
@@ -86,7 +86,7 @@ class ContactFormPlus(forms.Form):
                     self.fields[slugify(extraField.label)] = forms.CharField(label=extraField.label,
                             initial=extraField.initial,
                             widget=forms.Textarea(
-                                attrs={'placeholder': extraField.placeholder}
+                                attrs={'placeholder': extraField.placeholder, 'class': extraField.css_classes}
                             ),
                             required=extraField.required)
                 elif extraField.fieldType == 'auto_hidden_input':
@@ -106,7 +106,9 @@ class ContactFormPlus(forms.Form):
                     self.fields[slugify(extraField.label)] = MathCaptchaField(
                                                 label=extraField.label,
                                                 initial=extraField.initial,
-                                                required=True)
+                                                required=True,
+                    )
+                    self.fields[slugify(extraField.label)].widget.attrs={'class': extraField.css_classes}
                 elif extraField.fieldType == 'ReCaptcha':
                     self.fields[slugify(extraField.label)] = ReCaptchaField(
                                                 label=extraField.label,

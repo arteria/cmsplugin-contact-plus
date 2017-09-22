@@ -8,7 +8,7 @@ from .actions import export_as_csv_action
 
 class ExtraFieldInline(SortableTabularInline):
     model = ExtraField
-    fields = ('label', 'fieldType', 'initial', 'placeholder', 'required')
+    fields = ('label', 'fieldType', 'initial', 'placeholder', 'css_classes', 'required')
 
 
 class ContactFormPlusAdmin(NonSortableParentAdmin):
