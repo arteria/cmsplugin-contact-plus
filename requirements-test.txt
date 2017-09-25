@@ -1,0 +1,2 @@
+coverage
+django-cms==3.4.4

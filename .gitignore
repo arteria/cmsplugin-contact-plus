@@ -5,5 +5,18 @@
 *.pyc
 local_settings.py
 build
-cmsplugin_contact_plus.egg-info/
 dist
+*.egg
+*.egg-info
+eggs
+parts
+bin
+var
+sdist
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+# Sphinx
+docs/_build

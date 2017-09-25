@@ -1,0 +1,6 @@
+[run]
+source = cmsplugin_contact_plus
+omit = cmsplugin_contact_plus/migrations/*
+
+[report]
+fail_under = 20
