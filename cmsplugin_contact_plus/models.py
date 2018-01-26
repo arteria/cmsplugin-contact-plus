@@ -22,44 +22,46 @@ def get_current_site():
     except:
         current_site = 'example.com'
     return _('Contact form message from {}').format(current_site)
+
+
 @python_2_unicode_compatible
 class ContactPlus(CMSPlugin):
-    title = models.CharField(_('Title'), 
-            null=True, 
-            blank=True, 
-            max_length=100, 
+    title = models.CharField(_('Title'),
+            null=True,
+            blank=True,
+            max_length=100,
             help_text=_("Title for the Contact Form."))
     email_subject = models.CharField(
-            max_length=256, 
+            max_length=256,
             verbose_name=_("Email subject"),
             default=get_current_site)
-    recipient_email = models.EmailField(_("Email of recipients"), 
+    recipient_email = models.EmailField(_("Email of recipients"),
             default=DEFAULT_FROM_EMAIL_ADDRESS,
             max_length=254)
-    collect_records = models.BooleanField(_('Collect Records'), 
-            default=True, 
+    collect_records = models.BooleanField(_('Collect Records'),
+            default=True,
             help_text=_("If active, all records for this Form will be stored in the Database."))
     thanks = models.TextField(_('Message displayed after submitting the contact form.'))
     submit_button_text = models.CharField(_('Text for the Submit button.'),
-            blank=True, 
+            blank=True,
             max_length=30)
     template = models.CharField(
             max_length=255,
             choices=local_settings.CMSPLUGIN_CONTACT_PLUS_TEMPLATES,
             default='cmsplugin_contact_plus/contact.html',
             editable=len(local_settings.CMSPLUGIN_CONTACT_PLUS_TEMPLATES) > 1)
-            
+
     class Meta:
         verbose_name = "Contact Plus Form"
         verbose_name_plural = "Contact Plus Forms"
-            
+
     def copy_relations(self, oldinstance):
         for extrafield in ExtraField.objects.filter(form__pk=oldinstance.pk):
             extrafield.pk = None
             extrafield.save()
             self.extrafield_set.add(
                 extrafield)
-                
+
     def __str__(self):
         if self.title:
             return self.title
@@ -140,6 +142,5 @@ class ContactRecord(Model):
             return False
 
     def __str__(self):
-        return _(u"Record for %(contact)s recorded on %(date)s") % {'contact':self.contact_form, 
+        return _(u"Record for %(contact)s recorded on %(date)s") % {'contact':self.contact_form,
                                                                    'date': self.date_of_entry.strftime('%d. %b %Y') }
- 
