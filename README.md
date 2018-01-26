@@ -1,4 +1,8 @@
-# About cmsplugin_contact_plus
+# cmsplugin-contact-plus
+
+[![Build Status](https://travis-ci.org/arteria/cmsplugin-contact-plus.svg?branch=master)](https://travis-ci.org/arteria/cmsplugin-contact-plus)
+[![Coverage Status](https://coveralls.io/repos/github/arteria/cmsplugin-contact-plus/badge.svg?branch=master)](https://coveralls.io/github/arteria/cmsplugin-contact-plus?branch=master)
+
 
 [cmsplugin-contact-plus](https://github.com/arteria/cmsplugin-contact-plus/) lets you build forms for your Django CMS project
 with exactly the fields you want in the order you want with a minimal effort.
@@ -137,15 +141,15 @@ Please have a look at the latest commits for the work-in-progress development ve
 
 ### 1.3.6 - 21. 03. 2017
 - Remove undocumented template auto-discovery functionality
-  
+
   **Upgrading**: If you have relied on Contact Plus to automagically discover multiple form template choices, make sure the choices are now listed explicitly in your settings as described here: https://github.com/arteria/cmsplugin-contact-plus#cmsplugin_contact_plus_templates
 
 ### 1.3.5 - 22. 02. 2017
 - Drop Django 1.4 support
 - Replace https://github.com/centralniak/django-inline-ordering dependency with https://github.com/iambrandontaylor/django-admin-sortable.
-  
+
   **Upgrading**: Remove `'inline_ordering'` from `INSTALLED_APPS`and add `'adminsortable'` instead. To ensure the compatibility of the new dependency with your project's Django version, have a look at the "Supported Django Versions", "Installation", and "Configuration" sections of the [README](https://github.com/iambrandontaylor/django-admin-sortable/blob/master/README.md).
-  
+
 ### 1.3.2 - 07. 12. 2016
 - Fixed `MANIFEST.in`. Locale files are now correctly included
 
