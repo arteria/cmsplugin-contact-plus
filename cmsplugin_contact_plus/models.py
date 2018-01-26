@@ -11,10 +11,16 @@ from jsonfield import JSONField
 
 from cmsplugin_contact_plus import local_settings
 
-try:
-    DEFAULT_FROM_EMAIL_ADDRESS = settings.ADMINS[0][1]
-except:
-    DEFAULT_FROM_EMAIL_ADDRESS = ''
+
+def get_default_from_email_address():
+    email_address = ''
+    try:
+        email_address = settings.ADMINS[0][1]
+    except:
+        pass
+
+    return email_address
+
 
 def get_current_site():
     try:
@@ -36,7 +42,7 @@ class ContactPlus(CMSPlugin):
             verbose_name=_("Email subject"),
             default=get_current_site)
     recipient_email = models.EmailField(_("Email of recipients"),
-            default=DEFAULT_FROM_EMAIL_ADDRESS,
+            default=get_default_from_email_address,
             max_length=254)
     collect_records = models.BooleanField(_('Collect Records'),
             default=True,
