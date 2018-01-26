@@ -1,0 +1,3 @@
+
+class MakeRedirectException(Exception):
+    pass
