@@ -130,14 +130,20 @@ class ContactFormPlus(forms.Form):
                         required=extraField.required,
                         validators=get_validators())
 
+                if slugify(extraField.label) in self.fields:
+                    tags = ([t.strip() for t in extraField.tags.split(',')]
+                        if extraField.tags else [])
+                    self.fields[slugify(extraField.label)].tags = tags
+
 
     def send(self, recipient_email, request, ts, instance=None, multipart=False):
         current_site = Site.objects.get_current()
+        ordered_dic_list = []
+
         if instance:
             order = ContactPlus.objects.get(id=instance.id).extrafield_set.order_by('inline_ordering_position')
             excluded_field_types = ['MathCaptcha', 'ReCaptcha']
             order = [field for field in order if field.fieldType not in excluded_field_types]
-            ordered_dic_list = []
             for field in order:
                 key = slugify(field.label)
                 value = self.cleaned_data.get(key, '(no input)')
@@ -151,23 +157,29 @@ class ContactFormPlus(forms.Form):
                 ordered_dic_list.append({field.label: value})
 
         # Automatically match reply-to email address in form
-        tmp_headers = {}
+        email_headers = {}
         cc_list = []
-        try:
-            reply_email_label = getattr(settings, 'CONTACT_PLUS_REPLY_EMAIL_LABEL', None)
-            if reply_email_label is not None:
-                tmp_headers.update({'Reply-To': self.cleaned_data[reply_email_label]})
-        except:
-            pass
 
-        try:
-            cc_address_label = getattr(settings, 'CONTACT_PLUS_REPLY_EMAIL_LABEL', None)
-            cc_address = self.cleaned_data.get(cc_address_label, None)
-            send_copy = getattr(settings, 'CONTACT_PLUS_SEND_COPY_TO_REPLY_EMAIL', False)
-            if cc_address and send_copy:
-                cc_list.append(cc_address)
-        except:
-            pass
+        reply_email_tag = getattr(settings, 'CONTACT_PLUS_REPLY_EMAIL_TAG', None)
+        reply_email = None
+
+        if reply_email_tag:
+            for key, field in self.fields.items():
+                if reply_email_tag in field.tags:
+                    reply_email = self.cleaned_data[key]
+
+                    break
+        else:
+            reply_email_label = getattr(settings, 'CONTACT_PLUS_REPLY_EMAIL_LABEL', None)
+
+            if reply_email_label and reply_email_label in self.cleaned_data:
+                reply_email = self.cleaned_data[reply_email_label]
+
+        if reply_email:
+            email_headers.update({'Reply-To': reply_email})
+
+            if getattr(settings, 'CONTACT_PLUS_SEND_COPY_TO_REPLY_EMAIL', False):
+                cc_list.append(reply_email)
 
         email_message = EmailMessage(
             subject=instance.email_subject,
@@ -178,7 +190,7 @@ class ContactFormPlus(forms.Form):
             cc=cc_list,
             from_email=getattr(settings, 'CONTACT_PLUS_FROM_EMAIL', settings.DEFAULT_FROM_EMAIL),
             to=[recipient_email, ],
-            headers=tmp_headers,
+            headers=email_headers,
         )
         email_message.send(fail_silently=True)
 

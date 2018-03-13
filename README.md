@@ -42,7 +42,13 @@ Specify ``DEFAULT_FROM_EMAIL`` (https://docs.djangoproject.com/en/dev/ref/settin
 
 ### ``CONTACT_PLUS_REPLY_EMAIL_LABEL``
 
+**DEPRECATED**: See ``CONTACT_PLUS_REPLY_EMAIL_TAG``
+
 To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_REPLY_EMAIL_LABEL`` in your project settings. If the label is "your email" for example, then set ``CONTACT_PLUS_REPLY_EMAIL_LABEL='your-email'`` - basically it's the slugified field label that is used to look up the reply-to email address.
+
+### ``CONTACT_PLUS_REPLY_EMAIL_TAG``
+
+To set the reply-to header for the email automatically, specify ``CONTACT_PLUS_REPLY_EMAIL_TAG`` in your project settings. If the tag is matched against a tag on a form field, the field value is used as the reply-to email header.
 
 ### ``CONTACT_PLUS_SEND_COPY_TO_REPLY_EMAIL``
 
