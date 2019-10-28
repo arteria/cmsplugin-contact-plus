@@ -4,6 +4,7 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
+from django.utils.text import get_valid_filename
 from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
@@ -143,7 +144,7 @@ class ContactFormPlus(forms.Form):
                 value = self.cleaned_data.get(key, '(no input)')
                 # redefine value for files... 
                 if field.fieldType in ["FileField", "ImageField"]:
-                    val = ts + '-' + str(value)
+                    val = ts + '-' + get_valid_filename(value)
                     if settings.MEDIA_URL.startswith("http"):
                         value = "%s%s" % (settings.MEDIA_URL, val)
                     else:
