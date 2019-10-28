@@ -121,6 +121,9 @@ If you are not using the default template settings of Django, make sure that  ``
 
 Please have a look at the latest commits for the work-in-progress development version.
 
+### 1.3.13 - 28. 10. 2019
+- Get valid filename for uploaded files
+
 ### 1.3.12 - 28. 08. 2017
 - Safe values and optimise boolean fields display in recipients Email
 
