@@ -35,7 +35,7 @@ class ContactFormPlus(forms.Form):
                 elif extraField.fieldType == 'EmailField':
                     self.fields[slugify(extraField.label)] = forms.EmailField(label=extraField.label,
                             initial=extraField.initial,
-                            widget=forms.TextInput(
+                            widget=forms.EmailInput(
                                 attrs={'placeholder': extraField.placeholder}
                             ),
                             required=extraField.required)
