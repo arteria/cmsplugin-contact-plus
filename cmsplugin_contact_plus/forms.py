@@ -64,7 +64,7 @@ class ContactFormPlus(forms.Form):
                 elif extraField.fieldType == 'IntegerField':
                     self.fields[slugify(extraField.label)] = forms.IntegerField(label=extraField.label,
                             initial=extraField.initial,
-                            widget=forms.TextInput(
+                            widget=forms.NumberInput(
                                 attrs={'placeholder': extraField.placeholder}
                             ),
                             required=extraField.required)
