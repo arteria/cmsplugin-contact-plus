@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
@@ -111,6 +112,10 @@ class ExtraField(SortableMixin):
         _('Inital Value'), max_length=250, blank=True, null=True)
     placeholder = models.CharField(
         _('Placeholder Value'), max_length=250, blank=True, null=True)
+    tags = models.CharField(
+        verbose_name=_('Tags'), max_length=250, blank=True, null=True,
+        help_text=_('Comma separated list of tags.'),
+        validators=[RegexValidator(r'^([a-z-_0-9]+,\s*)*[a-z-_0-9]+$')])
     required = models.BooleanField(
         _('Mandatory field'), default=True)
     widget = models.CharField(
