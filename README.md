@@ -10,9 +10,12 @@ with exactly the fields you want in the order you want with a minimal effort.
 Beside the regular input fields there are "auto" fields, for example to submit the referral page, or additional, hidden values.
 The form will be submitted to an email address that is defined per form. This allows to cover a lot of use cases with a single and simple plugin.
 
-From v1.3.5, the plugin is compatible with Django >= 1.5
-
 cmsplugin-contact-plus is licensed under the MIT License.
+
+## Dependencies
+This plugin has been tested with:
+- Python 2.7; 3.6
+- Django 1.8; 1.11
 
 ## Quickstart
 
@@ -124,6 +127,9 @@ If you are not using the default template settings of Django, make sure that  ``
 ### Development
 
 Please have a look at the latest commits for the work-in-progress development version.
+
+### 1.3.18 - 19. 06. 2020
+- Add HTML notification option
 
 ### 1.3.13 - 28. 10. 2019
 - Get valid filename for uploaded files
