@@ -1,6 +1,6 @@
 from django.utils.http import urlquote
 from django import forms
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
@@ -170,7 +170,7 @@ class ContactFormPlus(forms.Form):
         except:
             pass
 
-        email_message = EmailMessage(
+        email_message = EmailMultiAlternatives(
             subject=instance.email_subject,
             body=render_to_string("cmsplugin_contact_plus/email.txt", {'data': self.cleaned_data,
                                                                       'ordered_data': ordered_dic_list,
@@ -181,6 +181,12 @@ class ContactFormPlus(forms.Form):
             to=[recipient_email, ],
             headers=tmp_headers,
         )
+        if getattr(settings, 'CONTACT_PLUS_SEND_HTML_EMAIL', False):
+            html_content = render_to_string("cmsplugin_contact_plus/email.html", {'data': self.cleaned_data,
+                                                                      'ordered_data': ordered_dic_list,
+                                                                      'instance': instance,
+                                                                      })
+            email_message.attach_alternative(html_content, "text/html")
         email_message.send(fail_silently=True)
 
         if instance.collect_records:# and not multipart:

@@ -75,6 +75,10 @@ CMSPLUGIN_CONTACT_FORM_VALIDATORS = [
 ]
 ```
 
+### ``CONTACT_PLUS_SEND_HTML_EMAIL``
+
+Default is `False`. If activated, the notification email is sent as *multipart/alternative*.
+
 ### reCAPTCHA
 
 To make the reCAPTCHA field type available to your users, add `'captcha'` to your `INSTALLED_APPS` and define your `RECAPTCHA_PUBLIC_KEY` and `RECAPTCHA_PRIVATE_KEY` as described in [django-recaptcha's README](https://github.com/praekelt/django-recaptcha/blob/develop/README.rst). A single reCAPTCHA instance per page is supported.
