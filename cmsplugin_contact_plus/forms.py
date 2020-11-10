@@ -13,6 +13,7 @@ from simplemathcaptcha.fields import MathCaptchaField
 from cmsplugin_contact_plus.models import ContactPlus, ContactRecord
 from cmsplugin_contact_plus.signals import contact_message_sent
 from cmsplugin_contact_plus.utils import get_validators
+from django.db.models import Q
 
 class ContactFormPlus(forms.Form):
     required_css_class = getattr(settings, 'CONTACT_PLUS_REQUIRED_CSS_CLASS', 'required')
@@ -169,7 +170,17 @@ class ContactFormPlus(forms.Form):
                 cc_list.append(cc_address)
         except:
             pass
-
+        
+        # Site specific from_email via GlobalProperty       
+        try:
+            from userproperty.models import GlobalProperty
+            current_site_clean = current_site.name.replace('.','')                        
+            from_email_property = GlobalProperty.objects.filter(Q(name__startswith='DEFAULT_FROM_EMAIL') &
+                                                                Q(name__contains=current_site_clean)).last()
+            from_email = from_email_property.value            
+        except:
+            from_email = settings.DEFAULT_FROM_EMAIL
+            
         email_message = EmailMultiAlternatives(
             subject=instance.email_subject,
             body=render_to_string("cmsplugin_contact_plus/email.txt", {'data': self.cleaned_data,
@@ -177,7 +188,7 @@ class ContactFormPlus(forms.Form):
                                                                       'instance': instance,
                                                                       }),
             cc=cc_list,
-            from_email=getattr(settings, 'CONTACT_PLUS_FROM_EMAIL', settings.DEFAULT_FROM_EMAIL),
+            from_email=getattr(settings, 'CONTACT_PLUS_FROM_EMAIL', from_email),
             to=[recipient_email, ],
             headers=tmp_headers,
         )
