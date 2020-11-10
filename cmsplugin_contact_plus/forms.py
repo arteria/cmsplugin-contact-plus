@@ -174,9 +174,10 @@ class ContactFormPlus(forms.Form):
         # Site specific from_email via GlobalProperty       
         try:
             from userproperty.models import GlobalProperty
-            current_site_clean = current_site.name.replace('.','')                        
+            host = request.get_host()
+            site = host.split('.')[1] 
             from_email_property = GlobalProperty.objects.filter(Q(name__startswith='DEFAULT_FROM_EMAIL') &
-                                                                Q(name__contains=current_site_clean)).last()
+                                                                Q(name__contains=site)).last()
             from_email = from_email_property.value            
         except:
             from_email = settings.DEFAULT_FROM_EMAIL
