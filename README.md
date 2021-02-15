@@ -132,6 +132,12 @@ If you are not using the default template settings of Django, make sure that  ``
 
 Please have a look at the latest commits for the work-in-progress development version.
 
+### 1.3.21 - 15. 02. 2021
+- Add Setting CONTACT_PLUS_FAIL_SILENTLY (default=True)
+
+### 1.3.20 - 10. 11. 2020
+- Add Site-specific from_email via GlobalProperty
+
 ### 1.3.18 - 19. 06. 2020
 - Add HTML notification option
 
