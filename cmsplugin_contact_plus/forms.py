@@ -199,7 +199,7 @@ class ContactFormPlus(forms.Form):
                                                                       'instance': instance,
                                                                       })
             email_message.attach_alternative(html_content, "text/html")
-        email_message.send(fail_silently=True)
+        email_message.send(fail_silently=getattr(settings, 'CONTACT_PLUS_FAIL_SILENTLY', True))
 
         if instance.collect_records:# and not multipart:
             record = ContactRecord(contact_form=instance, data=ordered_dic_list)#self.cleaned_data)
