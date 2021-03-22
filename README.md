@@ -132,6 +132,9 @@ If you are not using the default template settings of Django, make sure that  ``
 
 Please have a look at the latest commits for the work-in-progress development version.
 
+### 1.3.22 - 22. 03. 2021
+- Add new admin and search fields, update sorting/order
+
 ### 1.3.21 - 15. 02. 2021
 - Add Setting CONTACT_PLUS_FAIL_SILENTLY (default=True)
 
