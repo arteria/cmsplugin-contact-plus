@@ -18,6 +18,9 @@ class ContactFormPlusAdmin(NonSortableParentAdmin):
 
 class ContactRecordAdmin(admin.ModelAdmin):
     model = ContactRecord
+    list_display = ('contact_form', 'date_of_entry')
+    ordering = ['-date_of_entry']
+    search_fields = ['contact_form']    
     actions = [export_as_csv_action("CSV Export", 
         fields = ['contact_form', 'date_of_entry', 'date_processed', 'data'],
         header = True,
