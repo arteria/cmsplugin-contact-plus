@@ -1,4 +1,8 @@
-import csv 
+try:
+    import unicodecsv as csv
+except ModuleNotFoundError:
+    import csv 
+
 import six
 from six import text_type
 
