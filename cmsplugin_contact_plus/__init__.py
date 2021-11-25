@@ -1,3 +1,3 @@
-__version__ = '1.3.23'
+__version__ = '1.3.24'
 
 default_app_config = 'cmsplugin_contact_plus.apps.ContactPlusConfig'
