@@ -78,7 +78,7 @@ def export_as_csv_action(description="Export selected objects as CSV file",
                     j = getattr(obj, field)
                     for l in j:
                         try:
-                            for k, v in l.iteritems(): 
+                            for k, v in l.items(): 
                                 lut.add_field(k)
                         except AttributeError:
                             pass
@@ -93,7 +93,7 @@ def export_as_csv_action(description="Export selected objects as CSV file",
                 if field in json_fields:
                     j = getattr(obj, field)
                     for l in j:
-                        for k, v in l.iteritems(): 
+                        for k, v in l.items(): 
                             try:
                                 s = text_type(v)
                                 if six.PY2:
